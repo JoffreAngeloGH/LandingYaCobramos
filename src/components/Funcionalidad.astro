@@ -29,11 +29,11 @@ const featuresList = [
 const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RUTA DE IMAGEN
 ---
 
-<section id="funcionalidades" class="py-24 px-4 bg-gray-50 dark:bg-gray-900">
+<section id="funcionalidades" class="py-24 px-4 bg-gray-900">
   <div class="container mx-auto">
     <div class="text-center mb-16 animate-on-scroll" data-animation-type="fade-in-up">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins dark:text-white">Funcionalidad</h2>
-      <p class="text-gray-600 dark:text-gray-400 text-lg max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white">Funcionalidad</h2>
+      <p class="text-gray-400 text-lg max-w-3xl mx-auto">
         Descubre todas las herramientas que YoCobro pone a tu disposición para impulsar tu negocio
       </p>
     </div>
@@ -41,8 +41,8 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div class="animate-on-scroll" data-animation-type="fade-in-left">
         <div class="text-emerald-500 font-medium mb-2">Ventas y Gestión Automatizadas</div>
-        <h3 class="text-3xl font-bold mb-6 dark:text-white">Impulsa tu negocio con YoCobro</h3>
-        <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+        <h3 class="text-3xl font-bold mb-6 text-white">Impulsa tu negocio con YoCobro</h3>
+        <p class="text-gray-400 mb-8 text-lg">
           YoCobro, el vendedor inteligente basado en IA, optimiza tus ventas y gestión comercial directamente desde
           WhatsApp. Simplifica la facturación electrónica y la administración de tu negocio.
         </p>
@@ -54,12 +54,12 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
               data-animation-type="fade-in-up-staggered"
               data-stagger-index={index}
             >
-              <div class="text-emerald-500 dark:text-emerald-400 mt-1 bg-emerald-50 dark:bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-100 dark:group-hover:bg-emerald-800/50 transition-colors">
+              <div class="text-emerald-600 flex items-center mt-1 bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-800/50 transition-colors">
                 <Fragment set:html={feature.icon} />
               </div>
               <div>
-                <h4 class="font-bold text-lg mb-2 dark:text-white">{feature.title}</h4>
-                <p class="text-gray-600 dark:text-gray-400">{feature.description}</p>
+                <h4 class="font-bold text-lg mb-2 text-white">{feature.title}</h4>
+                <p class="text-gray-400">{feature.description}</p>
               </div>
             </div>
           ))}
@@ -67,10 +67,10 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
       </div>
 
       <div class="relative animate-on-scroll" data-animation-type="fade-in-right">
-        <div class="absolute inset-0 bg-blue-600 dark:bg-blue-700 rounded-3xl transform rotate-3 scale-95 opacity-20 blur-xl"></div>
-        <div class="bg-blue-600 dark:bg-blue-700 rounded-3xl p-6 overflow-hidden relative shadow-xl">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 dark:bg-blue-500 rounded-full opacity-20 transform translate-x-10 -translate-y-10"></div>
-          <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-700 dark:bg-blue-800 rounded-full opacity-20 transform -translate-x-10 translate-y-10"></div>
+        <div class="absolute inset-0 bg-blue-700 rounded-3xl transform rotate-3 scale-95 opacity-20 blur-xl"></div>
+        <div class="bg-blue-700 rounded-3xl p-6 overflow-hidden relative shadow-xl">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 transform translate-x-10 -translate-y-10"></div>
+          <div class="absolute bottom-0 left-0 w-32 h-32  bg-blue-800 rounded-full opacity-20 transform -translate-x-10 translate-y-10"></div>
 
           <div class="relative rounded-xl overflow-hidden shadow-lg">
             <img

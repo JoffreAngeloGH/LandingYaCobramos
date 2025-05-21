@@ -1,169 +1,90 @@
 ---
-// src/components/Precios.astro
-// No se importa FeatureCard.astro ni IconCheck.astro porque sus contenidos están anidados aquí.
-// No se importa 'astro-icon'.
-
-// --- DEFINICIÓN DEL COMPONENTE FeatureCard ANIDADO ---
-
-// Define las props esperadas para este componente anidado
-interface FeatureCardProps {
-  iconType: 'tablet' | 'barChart' | 'receipt';
-  title: string;
-  description: string;
-  animationDelay: number;
-}
-
-// *** CAMBIO CLAVE AQUÍ: Usamos un return explícito para la función del componente ***
-// *** CAMBIO CLAVE AQUÍ: Asegúrate de que el HTML esté directamente dentro de los paréntesis del retorno implícito ***
-const FeatureCard = ({ iconType, title, description, animationDelay }: FeatureCardProps) => ( // <-- Aquí el paréntesis inicial
-  <div // <-- Aquí el div con la clase
-    class="flex items-start space-x-4 animate-on-scroll"
-    data-animation="fade-in-up"
-    data-delay={animationDelay.toString()}
-  >
-    <div class="flex-shrink-0 text-blue-500 dark:text-blue-400">
-      {/* Lógica para renderizar el SVG basado en iconType */}
-      {iconType === 'tablet' && (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 2a10 10 0 0 0-9 15.5c.34.8 1.48 1.34 2.5 1.5.38-.85.96-1.57 1.7-2.1l-.8-2.3c.6-1.2 1.4-2.2 2.3-3 .5-3.3 2.5-6.5 5.2-7.5.8-1.5 1.2-2.3 1.2-2.3z"/><path d="M19 15a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/><path d="M12.5 12v3h3"/></svg>
-      )}
-      {iconType === 'barChart' && (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
-      )}
-      {iconType === 'receipt' && (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M14 8H8"/><path d="M16 12H8"/><path d="M16 16H8"/></svg>
-      )}
-    </div>
-    <div>
-      <h4 class="text-xl font-semibold mb-1 dark:text-white">{title}</h4>
-      <p class="text-gray-600 dark:text-gray-400">{description}</p>
-    </div>
-  </div>
-); // <-- Y aquí el paréntesis final
-
-// --- FIN DEFINICIÓN DEL COMPONENTE FeatureCard ANIDADO ---
-
-
-// Lista de características generales de tu servicio
-const featuresList = [
-  {
-    iconType: "tablet" as const,
-    title: "Vendedor Inteligente",
-    description: "Automatiza tus conversaciones de venta y personaliza la experiencia del cliente con IA avanzada.",
-  },
-  {
-    iconType: "barChart" as const,
-    title: "Gestión Comercial y Administrativa",
-    description: "Organiza tus contactos, gestiona inventarios y controla tus finanzas en un solo lugar integrado.",
-  },
-  {
-    iconType: "receipt" as const,
-    title: "Facturación Electrónica Automática",
-    description: "Emite facturas electrónicas de forma rápida y sencilla, cumpliendo con todas las regulaciones locales.",
-  },
-];
-
-// Datos de los planes de precios
-const plans = [
-  {
-    title: "Emprende",
-    subtitle: "Para pequeños negocios",
-    price: "S/100",
-    features: ["Automatización básica", "Respuestas automáticas", "Facturación electrónica"],
-    highlighted: false,
-    delay: 0,
-  },
-  {
-    title: "Profesional",
-    subtitle: "Para negocios en crecimiento",
-    price: "S/100",
-    features: ["Todo lo de Emprende", "Análisis de datos", "Integración con CRM", "Soporte prioritario"],
-    highlighted: true,
-    delay: 0.1,
-    badge: "Recomendado",
-  },
-  {
-    title: "Corporativo",
-    subtitle: "Para empresas establecidas",
-    price: "S/100",
-    features: ["Todo lo de Profesional", "API personalizada", "Múltiples usuarios", "Soporte 24/7"],
-    highlighted: false,
-    delay: 0.2,
-  },
-];
+import { Image } from 'astro:assets';
 ---
 
-<section id="precio" class="py-24 px-4 bg-white dark:bg-gray-950">
+<section id="precio" class="py-24 px-4 bg-white ">
   <div class="container mx-auto max-w-5xl">
-    <div
-      class="text-center mb-16 animate-on-scroll"
-      data-animation="fade-in-up"
-      data-delay="0"
-    >
-      <h2
-        class="text-3xl md:text-5xl font-bold mb-4 font-poppins dark:text-white"
-      >
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins ">
         Planes simples, resultados extraordinarios
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 text-lg max-w-3xl mx-auto">
+      <p class="text-gray-600  text-lg max-w-3xl mx-auto">
         Elige el plan que mejor se adapte a las necesidades de tu negocio y comienza a transformar tu operación
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-      {featuresList.map((feature, index) => (
-        <FeatureCard
-          iconType={feature.iconType}
-          title={feature.title}
-          description={feature.description}
-          animationDelay={0.3 + index * 0.1}
-        />
-      ))}
-    </div>
-
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {plans.map((plan, index) => (
+      {[
+        {
+          title: "Emprende",
+          subtitle: "Para pequeños negocios",
+          price: "S/100",
+          features: ["Automatización básica", "Respuestas automáticas", "Facturación electrónica"],
+          highlighted: false,
+          delay: 0,
+        },
+        {
+          title: "Profesional",
+          subtitle: "Para negocios en crecimiento",
+          price: "S/100",
+          features: ["Todo lo de Emprende", "Análisis de datos", "Integración con CRM", "Soporte prioritario"],
+          highlighted: true,
+          delay: 100,
+          badge: "Recomendado",
+        },
+        {
+          title: "Corporativo",
+          subtitle: "Para empresas establecidas",
+          price: "S/100",
+          features: ["Todo lo de Profesional", "API personalizada", "Múltiples usuarios", "Soporte 24/7"],
+          highlighted: false,
+          delay: 200,
+        },
+      ].map((plan, index) => (
         <div
-          class={`rounded-2xl overflow-hidden bg-white dark:bg-gray-900 border ${
+          class={`rounded-2xl overflow-hidden bg-white  border reveal ${
             plan.highlighted
-              ? "border-blue-500 dark:border-blue-400 shadow-lg shadow-blue-100 dark:shadow-blue-900/20 relative"
-              : "border-gray-200 dark:border-gray-800"
-          } animate-on-scroll`}
-          data-animation="fade-in-up"
-          data-delay={plan.delay.toString()}
+              ? "border-blue-500 shadow-lg shadow-blue-100  relative"
+              : "border-gray-200 "
+          }`}
+          data-delay={plan.delay}
         >
           {plan.highlighted && plan.badge && (
             <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
               {plan.badge}
             </div>
           )}
-          <div class={`p-8 ${plan.highlighted ? "bg-blue-50 dark:bg-blue-900/20" : ""}`}>
-            <h3 class="text-2xl font-bold mb-1 dark:text-white">{plan.title}</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">{plan.subtitle}</p>
+          <div class={`p-8 ${plan.highlighted ? "bg-blue-50 " : ""}`}>
+            <h3 class="text-2xl font-bold mb-1 ">{plan.title}</h3>
+            <p class="text-gray-500  text-sm mb-6">{plan.subtitle}</p>
             <div class="mb-6">
-              <span class="text-4xl font-bold dark:text-white">{plan.price}</span>
-              <span class="text-gray-500 dark:text-gray-400">/mes</span>
+              <span class="text-4xl font-bold ">{plan.price}</span>
+              <span class="text-gray-500 ">/mes</span>
             </div>
             <div class="space-y-4 mb-8">
-              {plan.features.map((feature) => (
-                <div class="flex items-center text-gray-700 dark:text-gray-300">
+              {plan.features.map((feature, i) => (
+                <div class="flex items-center text-gray-700 ">
                   <div
-                    class={`flex-shrink-0 mr-3 ${plan.highlighted ? "text-blue-500 dark:text-blue-400" : "text-emerald-500 dark:text-emerald-400"}`}
+                    class={`flex-shrink-0 mr-3 ${plan.highlighted ? "text-blue-500 " : "text-emerald-500 "}`}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucude-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
                   </div>
                   <span>{feature}</span>
                 </div>
               ))}
             </div>
-            <button
-              class={`w-full py-6 h-auto text-base rounded-lg ${
+            <a
+              href="#contacto"
+              class={`block w-full py-4 px-6 rounded-md text-center font-medium transition-colors ${
                 plan.highlighted
-                  ? "bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-600 dark:hover:bg-blue-700"
-                  : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white dark:border-gray-700"
+                  ? "bg-blue-600 hover:bg-blue-700 text-white  "
+                  : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 "
               }`}
             >
               Empezar ahora
-            </button>
+            </a>
           </div>
         </div>
       ))}
@@ -171,49 +92,6 @@ const plans = [
   </div>
 </section>
 
-<style>
-  /* Estilos base para la animación: oculto y ligeramente desplazado */
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  /* Clases para cuando el elemento está visible */
-  .animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
 <script>
-  // Script para manejar las animaciones al hacer scroll
-  document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-      root: null, // Observa el viewport
-      rootMargin: '0px', // Sin margen adicional
-      threshold: 0.1, // El 10% del elemento debe estar visible para activar
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Asertamos el tipo a HTMLElement para acceder a .dataset
-          const targetElement = entry.target as HTMLElement;
-          // Obtenemos el retraso del atributo data-delay, con un fallback a '0'
-          const delay = parseFloat(targetElement.dataset.delay || '0');
-
-          setTimeout(() => {
-            targetElement.classList.add('is-visible');
-          }, delay * 1000); // Convertir segundos a milisegundos
-          observer.unobserve(entry.target); // Dejar de observar una vez que ha animado
-        }
-      });
-    }, observerOptions);
-
-    // Observar todos los elementos con la clase 'animate-on-scroll'
-    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
-      observer.observe(element);
-    });
-  });
+  // El script de animación está en Beneficios.astro y se aplica a todos los elementos con la clase 'reveal'
 </script>

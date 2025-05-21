@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="py-24 px-4 bg-gray-900">
+  <div class="container mx-auto max-w-3xl">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white">Preguntas Frecuentes</h2>
+      <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+        Todo lo que necesitas saber sobre YoCobro y cómo puede ayudar en tu negocio
+      </p>
+    </div>
+
+    <div class="reveal" data-delay="100">
+      <div class="space-y-4">
+        {[
+          {
+            question: "¿Necesito conocimientos técnicos para usar Yocobro?",
+            answer:
+              "YoCobro es ideal para e-commerce, tiendas minoristas, servicios profesionales, restaurantes, agencias y cualquier negocio que reciba consultas o ventas por WhatsApp. Si tus clientes te contactan para hacer preguntas o comprar, YoCobro puede ayudarte a automatizar y escalar.",
+          },
+          {
+            question: "¿Cómo se integra YoCobro con WhatsApp?",
+            answer:
+              "YoCobro se integra fácilmente con WhatsApp Business API, permitiéndote automatizar conversaciones sin necesidad de configuraciones complejas. Nuestro equipo te guía en todo el proceso de integración para que puedas empezar a usarlo rápidamente.",
+          },
+          {
+            question: "¿Puedo personalizar las respuestas automáticas?",
+            answer:
+              "Sí, YoCobro te permite personalizar completamente las respuestas automáticas según tu marca y tipo de negocio. Puedes crear flujos de conversación específicos para diferentes productos o servicios, adaptándose a las necesidades de tus clientes.",
+          },
+          {
+            question: "¿Qué pasa si necesito ayuda o soporte técnico?",
+            answer:
+              "Ofrecemos soporte técnico por chat, correo electrónico y llamada telefónica. Nuestro equipo está disponible para ayudarte con cualquier duda o problema que puedas tener. Además, contamos con una base de conocimientos completa con tutoriales y guías paso a paso.",
+          },
+        ].map((faq, index) => (
+          <div class="bg-gray-900 rounded-xl shadow-sm border border-gray-800 overflow-hidden accordion-item">
+            <button 
+              class="w-full px-6 py-4 text-left font-medium text-white flex justify-between items-center"
+              aria-expanded="false"
+              aria-controls={`accordion-content-${index}`}
+            >
+              <span>{faq.question}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon transition-transform duration-200">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div 
+              id={`accordion-content-${index}`}
+              class="px-6 pb-4 pt-0 text-gray-400 accordion-content hidden"
+            >
+              <p class="pt-2">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupAccordion() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    accordionItems.forEach(item => {
+      const button = item.querySelector('button');
+      const content = item.querySelector('.accordion-content');
+      const icon = item.querySelector('.accordion-icon');
+      
+      if (button && content && icon) {
+        button.addEventListener('click', () => {
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          
+          // Cerrar todos los acordeones
+          accordionItems.forEach(otherItem => {
+            const otherButton = otherItem.querySelector('button');
+            const otherContent = otherItem.querySelector('.accordion-content');
+            const otherIcon = otherItem.querySelector('.accordion-icon');
+            
+            if (otherItem !== item && otherButton && otherContent && otherIcon) {
+              otherButton.setAttribute('aria-expanded', 'false');
+              otherContent.classList.add('hidden');
+              otherIcon.classList.remove('rotate-180');
+            }
+          });
+          
+          // Alternar el estado del acordeón actual
+          button.setAttribute('aria-expanded', (!expanded).toString());
+          content.classList.toggle('hidden');
+          icon.classList.toggle('rotate-180');
+        });
+      }
+    });
+  }
+  
+  // Ejecutar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', setupAccordion);
+  // También ejecutar cuando cambie la página con ViewTransitions
+  document.addEventListener('astro:page-load', setupAccordion);
+</script>

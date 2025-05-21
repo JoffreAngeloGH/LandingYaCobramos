@@ -3,8 +3,6 @@
 
 // Asumimos que tienes estos componentes de Astro creados
 
-
-
 // Iconos (puedes crear componentes .astro para estos o pegar el SVG directamente)
 // Por simplicidad, usaré placeholders aquí. Reemplázalos con tus SVGs reales.
 const MenuIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
@@ -24,31 +22,46 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-emerald-500 py-4"
 >
   <div class="container mx-auto flex items-center justify-between px-4">
-    <img src="/images/LogoYaCobramos.png" alt="Logo YaCobramos">
+    <img src="/images/LogoYaCobramos.png" alt="Logo YaCobramos" />
 
     <div class="flex items-center gap-4">
-      
-
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#" class="font-medium text-white/90 hover:text-white transition-colors">
+        <a
+          href="#"
+          class="font-medium text-white/90 hover:text-white transition-colors"
+        >
           Inicio
         </a>
-        <a href="#beneficios" class="font-medium text-white/90 hover:text-white transition-colors">
+        <a
+          href="#beneficios"
+          class="font-medium text-white/90 hover:text-white transition-colors"
+        >
           Beneficios
         </a>
-        <a href="#funcionalidades" class="font-medium text-white/90 hover:text-white transition-colors">
+        <a
+          href="#funcionalidades"
+          class="font-medium text-white/90 hover:text-white transition-colors"
+        >
           Funcionalidades
         </a>
-        <a href="#precio" class="font-medium text-white/90 hover:text-white transition-colors">
+        <a
+          href="#precio"
+          class="font-medium text-white/90 hover:text-white transition-colors"
+        >
           Precio
         </a>
-        <a href="#testimonios" class="font-medium text-white/90 hover:text-white transition-colors">
+        <a
+          href="#testimonios"
+          class="font-medium text-white/90 hover:text-white transition-colors"
+        >
           Testimonios
         </a>
       </nav>
 
       <a
-        href="#solicita-demo"
+        href="https://wa.me/51999999999"
+        target="_blank"
+        rel="noopener noreferrer"
         class="hidden md:flex items-center justify-center bg-white text-emerald-600 hover:bg-white/90 transition-all duration-300 shadow-md hover:shadow-lg px-4 py-2 text-sm rounded-md font-medium"
       >
         Solicita una demo
@@ -73,7 +86,7 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
     class="fixed inset-0 bg-black/95 z-50 flex flex-col p-6 transition-transform duration-300 transform translate-x-full md:hidden"
   >
     <div class="flex justify-between items-center mb-10">
-      <img src="/images/LogoYaCobramos.png" alt="Logo YaCobramos">
+      <img src="/images/LogoYaCobramos.png" alt="Logo YaCobramos" />
       <button
         type="button"
         id="close-menu-button"
@@ -89,16 +102,28 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       <a href="#" class="mobile-menu-link text-xl font-medium text-white py-2">
         Inicio
       </a>
-      <a href="#beneficios" class="mobile-menu-link text-xl font-medium text-white py-2">
+      <a
+        href="#beneficios"
+        class="mobile-menu-link text-xl font-medium text-white py-2"
+      >
         Beneficios
       </a>
-      <a href="#funcionalidades" class="mobile-menu-link text-xl font-medium text-white py-2">
+      <a
+        href="#funcionalidades"
+        class="mobile-menu-link text-xl font-medium text-white py-2"
+      >
         Funcionalidades
       </a>
-      <a href="#precio" class="mobile-menu-link text-xl font-medium text-white py-2">
+      <a
+        href="#precio"
+        class="mobile-menu-link text-xl font-medium text-white py-2"
+      >
         Precio
       </a>
-      <a href="#testimonios" class="mobile-menu-link text-xl font-medium text-white py-2">
+      <a
+        href="#testimonios"
+        class="mobile-menu-link text-xl font-medium text-white py-2"
+      >
         Testimonios
       </a>
     </nav>
@@ -116,32 +141,42 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
 </header>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('main-header');
-    const mobileMenuPanel = document.getElementById('mobile-menu-panel');
-    const openMenuButton = document.getElementById('open-menu-button');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("main-header");
+    const mobileMenuPanel = document.getElementById("mobile-menu-panel");
+    const openMenuButton = document.getElementById("open-menu-button");
+    const closeMenuButton = document.getElementById("close-menu-button");
+    const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
 
     // Estado de scroll
     let isScrolled = false;
     const handleScroll = () => {
       if (window.scrollY > 10) {
         if (!isScrolled && header) {
-          header.classList.remove('bg-emerald-500', 'py-4');
-          header.classList.add('bg-emerald-500/95', 'backdrop-blur-md', 'shadow-md', 'py-2');
+          header.classList.remove("bg-emerald-500", "py-4");
+          header.classList.add(
+            "bg-emerald-500/95",
+            "backdrop-blur-md",
+            "shadow-md",
+            "py-2"
+          );
           isScrolled = true;
         }
       } else {
         if (isScrolled && header) {
-          header.classList.remove('bg-emerald-500/95', 'backdrop-blur-md', 'shadow-md', 'py-2');
-          header.classList.add('bg-emerald-500', 'py-4');
+          header.classList.remove(
+            "bg-emerald-500/95",
+            "backdrop-blur-md",
+            "shadow-md",
+            "py-2"
+          );
+          header.classList.add("bg-emerald-500", "py-4");
           isScrolled = false;
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Llama una vez al cargar para establecer el estado inicial
 
     // Estado del menú móvil
@@ -149,41 +184,41 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
 
     function openMenu() {
       if (mobileMenuPanel && openMenuButton) {
-        mobileMenuPanel.classList.remove('translate-x-full');
-        mobileMenuPanel.classList.add('translate-x-0');
-        openMenuButton.setAttribute('aria-expanded', 'true');
+        mobileMenuPanel.classList.remove("translate-x-full");
+        mobileMenuPanel.classList.add("translate-x-0");
+        openMenuButton.setAttribute("aria-expanded", "true");
         isMenuOpen = true;
         // Opcional: deshabilitar scroll del body
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
       }
     }
 
     function closeMenu() {
       if (mobileMenuPanel && openMenuButton) {
-        mobileMenuPanel.classList.remove('translate-x-0');
-        mobileMenuPanel.classList.add('translate-x-full');
-        openMenuButton.setAttribute('aria-expanded', 'false');
+        mobileMenuPanel.classList.remove("translate-x-0");
+        mobileMenuPanel.classList.add("translate-x-full");
+        openMenuButton.setAttribute("aria-expanded", "false");
         isMenuOpen = false;
         // Opcional: habilitar scroll del body
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       }
     }
 
     if (openMenuButton) {
-      openMenuButton.addEventListener('click', openMenu);
+      openMenuButton.addEventListener("click", openMenu);
     }
 
     if (closeMenuButton) {
-      closeMenuButton.addEventListener('click', closeMenu);
+      closeMenuButton.addEventListener("click", closeMenu);
     }
 
-    mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
 
     // Opcional: cerrar menú al presionar la tecla Escape
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && isMenuOpen) {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isMenuOpen) {
         closeMenu();
       }
     });
