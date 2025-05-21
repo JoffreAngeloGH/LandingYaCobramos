@@ -1,0 +1,125 @@
+---
+// src/components/CTA.astro (o Hero.astro)
+// ... (frontmatter se mantiene igual que antes)
+const ArrowRightIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-5 w-5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
+const ClockIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-emerald-300"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`;
+const BarChart2Icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-emerald-300"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`;
+const DollarSignIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-emerald-300"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`;
+
+const features = [
+  {
+    icon: ClockIcon,
+    title: "Ahorra tiempo",
+    description: "Automatiza respuestas y procesos de venta 24/7",
+  },
+  {
+    icon: BarChart2Icon,
+    title: "Aumenta ventas",
+    description: "Mejora la conversión con respuestas inmediatas",
+  },
+  {
+    icon: DollarSignIcon,
+    title: "Reduce costos",
+    description: "Optimiza recursos y personal de atención",
+  },
+];
+---
+
+<section class="pt-32 pb-20 px-4 bg-gradient-to-b from-emerald-500 to-emerald-600 dark:from-emerald-900 dark:to-emerald-950 text-white">
+  <div class="container mx-auto max-w-5xl">
+    <div class="text-center mb-12 animated-element-cta">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 font-poppins leading-tight">
+        Automatiza tus ventas sin perder el trato humano
+      </h1>
+      <p class="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto">
+        Automatiza tus ventas con inteligencia artificial que responde, convence y factura 24/7. Ideal para
+        empresas, pymes y e-commerce.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a
+          href="#solicita-demo"
+          class="inline-flex items-center justify-center bg-white text-emerald-600 hover:bg-white/90 text-lg px-8 py-3 h-auto shadow-lg hover:shadow-xl transition-all duration-300 rounded-md font-medium"
+          style="height: auto; min-height: 3.5rem;"
+        >
+          Solicita una demo
+          <Fragment set:html={ArrowRightIcon} />
+        </a>
+        <a
+          href="#ver-planes"
+          class="inline-flex items-center justify-center border border-white/30 bg-white/10 hover:bg-white/20 text-white text-lg px-8 py-3 h-auto rounded-md font-medium"
+          style="height: auto; min-height: 3.5rem;"
+        >
+          Ver planes
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {features.map((item, i) => (
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 animated-feature-card"
+          data-delay-index={i}
+        >
+          <div class="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <Fragment set:html={item.icon} />
+          </div>
+          <h3 class="font-bold text-xl mb-2">{item.title}</h3>
+          <p class="text-white/70">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .animated-element-cta,
+  .animated-feature-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition-property: opacity, transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+
+  .animated-element-cta.is-visible,
+  .animated-feature-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElementsCta = document.querySelectorAll('.animated-element-cta');
+    const animatedFeatureCards = document.querySelectorAll('.animated-feature-card');
+
+    const observerOptions: IntersectionObserverInit = { // Tipo para las opciones
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    // Añadimos los tipos para entries y observer
+    const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry: IntersectionObserverEntry) => { // Tipo para entry
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement; // Aseguramos que target es un HTMLElement
+          const delayIndexAttr = target.dataset.delayIndex;
+          const delayIndex = delayIndexAttr ? parseInt(delayIndexAttr) : NaN; // Parseamos el string
+          const delay = !isNaN(delayIndex) ? 0.1 * delayIndex : 0;
+
+          setTimeout(() => {
+            target.classList.add('is-visible');
+          }, delay * 1000);
+
+          observer.unobserve(target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    animatedElementsCta.forEach(el => observer.observe(el));
+    animatedFeatureCards.forEach(el => observer.observe(el));
+  });
+</script>

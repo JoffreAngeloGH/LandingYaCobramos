@@ -1,0 +1,161 @@
+---
+// src/components/Funcionalidad.astro
+
+// Reemplaza estos con tus SVGs reales de Lucide o componentes de icono Astro
+const TabletIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>`;
+const BarChart3Icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>`;
+const ReceiptIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path><path d="M16 8h-6a2 2 0 1 0 0 4h6"></path><path d="M12 14v2"></path></svg>`;
+
+const featuresList = [
+  {
+    icon: TabletIcon,
+    title: "Vendedor Inteligente",
+    description: "Automatiza tus conversaciones de venta y personaliza la experiencia del cliente con IA avanzada.",
+  },
+  {
+    icon: BarChart3Icon,
+    title: "Gestión Comercial y Administrativa",
+    description: "Organiza tus contactos, gestiona inventarios y controla tus finanzas en un solo lugar integrado.",
+  },
+  {
+    icon: ReceiptIcon,
+    title: "Facturación Electrónica Automática",
+    description: "Emite facturas electrónicas de forma rápida y sencilla, cumpliendo con todas las regulaciones locales.",
+  },
+];
+
+// Asumimos que tienes una imagen en public/images/funcionalidad-placeholder.jpg
+// o reemplaza con la URL correcta o importa desde src/assets si usas <Image> de astro:assets
+const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RUTA DE IMAGEN
+---
+
+<section id="funcionalidades" class="py-24 px-4 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto">
+    <div class="text-center mb-16 animate-on-scroll" data-animation-type="fade-in-up">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins dark:text-white">Funcionalidad</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg max-w-3xl mx-auto">
+        Descubre todas las herramientas que YoCobro pone a tu disposición para impulsar tu negocio
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll" data-animation-type="fade-in-left">
+        <div class="text-emerald-500 font-medium mb-2">Ventas y Gestión Automatizadas</div>
+        <h3 class="text-3xl font-bold mb-6 dark:text-white">Impulsa tu negocio con YoCobro</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+          YoCobro, el vendedor inteligente basado en IA, optimiza tus ventas y gestión comercial directamente desde
+          WhatsApp. Simplifica la facturación electrónica y la administración de tu negocio.
+        </p>
+
+        <div class="space-y-8">
+          {featuresList.map((feature, index) => (
+            <div
+              class="flex gap-4 group feature-item animate-on-scroll"
+              data-animation-type="fade-in-up-staggered"
+              data-stagger-index={index}
+            >
+              <div class="text-emerald-500 dark:text-emerald-400 mt-1 bg-emerald-50 dark:bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-100 dark:group-hover:bg-emerald-800/50 transition-colors">
+                <Fragment set:html={feature.icon} />
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-2 dark:text-white">{feature.title}</h4>
+                <p class="text-gray-600 dark:text-gray-400">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="relative animate-on-scroll" data-animation-type="fade-in-right">
+        <div class="absolute inset-0 bg-blue-600 dark:bg-blue-700 rounded-3xl transform rotate-3 scale-95 opacity-20 blur-xl"></div>
+        <div class="bg-blue-600 dark:bg-blue-700 rounded-3xl p-6 overflow-hidden relative shadow-xl">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 dark:bg-blue-500 rounded-full opacity-20 transform translate-x-10 -translate-y-10"></div>
+          <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-700 dark:bg-blue-800 rounded-full opacity-20 transform -translate-x-10 translate-y-10"></div>
+
+          <div class="relative rounded-xl overflow-hidden shadow-lg">
+            <img
+              src={imageUrl}
+              alt="Visualización de la funcionalidad de YoCobro"
+              width="500"
+              height="400"
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-on-scroll {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 0.5s; /* Duración base para la mayoría de las animaciones */
+    transition-timing-function: ease-out;
+  }
+
+  /* Tipos de animación */
+  .animate-on-scroll[data-animation-type="fade-in-up"],
+  .animate-on-scroll[data-animation-type="fade-in-up-staggered"] {
+    transform: translateY(20px);
+  }
+
+  .animate-on-scroll[data-animation-type="fade-in-left"] {
+    transform: translateX(-30px);
+  }
+
+  .animate-on-scroll[data-animation-type="fade-in-right"] {
+    transform: translateX(30px);
+  }
+
+  /* Estado visible */
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0); /* Resetea ambas transformaciones */
+  }
+
+  /* Ajuste específico para la duración de las feature-item, si es diferente */
+  .animate-on-scroll[data-animation-type="fade-in-up-staggered"] {
+    transition-duration: 0.3s; /* Como en el original transition={{ duration: 0.3 }} */
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1, // Animar cuando el 10% del elemento es visible
+    };
+
+    const animatedElements = document.querySelectorAll<HTMLElement>('.animate-on-scroll');
+
+    const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          const animationType = target.dataset.animationType;
+
+          if (animationType === "fade-in-up-staggered") {
+            const indexAttr = target.dataset.staggerIndex;
+            const index = indexAttr ? parseInt(indexAttr) : 0;
+            const delay = index * 100; // 0.1s delay (index * 0.1)
+
+            // Aplicar delay y luego la clase.
+            // transition-delay se puede aplicar directamente en la clase visible si se desea,
+            // o aquí para más control si el delay varía mucho.
+            target.style.transitionDelay = `${delay}ms`;
+          }
+          
+          target.classList.add('is-visible');
+          observer.unobserve(target); // Animar solo una vez
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    animatedElements.forEach(el => observer.observe(el));
+  });
+</script>
