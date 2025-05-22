@@ -1,20 +1,14 @@
 ---
-// src/components/Header.astro
+const navItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Beneficios", href: "/#beneficios" },
+  { label: "Funcionalidades", href: "/#funcionalidades" },
+  { label: "Precio", href: "/#precio" },
+  { label: "Testimonios", href: "/#testimonios" },
+];
 
-// Asumimos que tienes estos componentes de Astro creados
-
-// Iconos (puedes crear componentes .astro para estos o pegar el SVG directamente)
-// Por simplicidad, usaré placeholders aquí. Reemplázalos con tus SVGs reales.
 const MenuIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
 const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
-
-// Puedes pasar props al header si es necesario
-// export interface Props {
-// title?: string;
-// }
-// const { title = 'Default Title' } = Astro.props;
-
-// La lógica de 'isScrolled' y 'isMenuOpen' se manejará en el script del lado del cliente
 ---
 
 <header
@@ -26,43 +20,21 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
 
     <div class="flex items-center gap-4">
       <nav class="hidden md:flex items-center gap-8">
-        <a
-          href="#"
-          class="font-medium text-white/90 hover:text-white transition-colors"
-        >
-          Inicio
-        </a>
-        <a
-          href="#beneficios"
-          class="font-medium text-white/90 hover:text-white transition-colors"
-        >
-          Beneficios
-        </a>
-        <a
-          href="#funcionalidades"
-          class="font-medium text-white/90 hover:text-white transition-colors"
-        >
-          Funcionalidades
-        </a>
-        <a
-          href="#precio"
-          class="font-medium text-white/90 hover:text-white transition-colors"
-        >
-          Precio
-        </a>
-        <a
-          href="#testimonios"
-          class="font-medium text-white/90 hover:text-white transition-colors"
-        >
-          Testimonios
-        </a>
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class="font-medium text-[20px] text-white hover:text-yellow-300 transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
 
       <a
         href="https://wa.me/51999999999"
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden md:flex items-center justify-center bg-white text-emerald-600 hover:bg-white/90 transition-all duration-300 shadow-md hover:shadow-lg px-4 py-2 text-sm rounded-md font-medium"
+        class="hidden md:flex items-center justify-center text-[17px] bg-white text-emerald-600 hover:bg-white/90 transition-all duration-300 shadow-md hover:shadow-lg px-4 py-2 text-sm rounded-md font-medium"
       >
         Solicita una demo
       </a>
@@ -99,33 +71,14 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
     </div>
 
     <nav class="flex flex-col gap-6 text-center">
-      <a href="#" class="mobile-menu-link text-xl font-medium text-white py-2">
-        Inicio
-      </a>
-      <a
-        href="#beneficios"
-        class="mobile-menu-link text-xl font-medium text-white py-2"
-      >
-        Beneficios
-      </a>
-      <a
-        href="#funcionalidades"
-        class="mobile-menu-link text-xl font-medium text-white py-2"
-      >
-        Funcionalidades
-      </a>
-      <a
-        href="#precio"
-        class="mobile-menu-link text-xl font-medium text-white py-2"
-      >
-        Precio
-      </a>
-      <a
-        href="#testimonios"
-        class="mobile-menu-link text-xl font-medium text-white py-2"
-      >
-        Testimonios
-      </a>
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="mobile-menu-link text-xl font-medium text-white py-2"
+        >
+          {item.label}
+        </a>
+      ))}
     </nav>
 
     <div class="mt-auto">
@@ -188,7 +141,6 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         mobileMenuPanel.classList.add("translate-x-0");
         openMenuButton.setAttribute("aria-expanded", "true");
         isMenuOpen = true;
-        // Opcional: deshabilitar scroll del body
         document.body.style.overflow = "hidden";
       }
     }
@@ -199,7 +151,6 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         mobileMenuPanel.classList.add("translate-x-full");
         openMenuButton.setAttribute("aria-expanded", "false");
         isMenuOpen = false;
-        // Opcional: habilitar scroll del body
         document.body.style.overflow = "";
       }
     }
@@ -216,7 +167,6 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       link.addEventListener("click", closeMenu);
     });
 
-    // Opcional: cerrar menú al presionar la tecla Escape
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isMenuOpen) {
         closeMenu();
