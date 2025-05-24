@@ -6,23 +6,21 @@
 // ];
 
 const logosRow2 = [
-  { name: 'Empresa 11', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 12', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 13', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 14', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 15', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 16', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 17', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 18', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 19', logo: '/placeholder.svg?height=60&width=120' },
-  { name: 'Empresa 20', logo: '/placeholder.svg?height=60&width=120' },
+  { name: "Empresa 1", logo: "/images/logos/LogoFirm.svg" },
+  { name: "Empresa 2", logo: "/images/logos/LogoGreenCycle.svg" },
+  { name: "Empresa 3", logo: "/images/logos/LogoLabora.svg" },
+  { name: "Empresa 4", logo: "/images/logos/LogoSacs.svg" },
 ];
 ---
 
-<section class="py-12 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+<section class="py-12 bg-gray-900 overflow-hidden">
   <div class="container mx-auto max-w-6xl px-4">
-    <h2 class="text-2xl font-bold text-center mb-8 font-poppins dark:text-white">Respaldo</h2>
-    
+    <h2
+      class="text-2xl font-bold text-center mb-8 font-poppins dark:text-white"
+    >
+      Respaldo
+    </h2>
+
     <div class="relative">
       <!-- Primera fila de logos con animación hacia la derecha -->
       <!-- <div class="logos-slide-track">
@@ -38,19 +36,24 @@ const logosRow2 = [
           ))}
         </div>
       </div> -->
-      
+
       <!-- Segunda fila de logos con animación hacia la izquierda (dirección opuesta) -->
       <div class="logos-slide-track-reverse mt-8">
         <div class="logos-slide">
-          {[...logosRow2, ...logosRow2].map(company => (
-            <div class="logo-item mx-8 flex items-center justify-center" aria-label={company.name}>
-              <img 
-                src={company.logo || "/placeholder.svg"} 
-                alt={`Logo de ${company.name}`} 
-                class="h-12 md:h-16 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              />
-            </div>
-          ))}
+          {
+            [...logosRow2, ...logosRow2].map((company) => (
+              <div
+                class="logo-item mx-8 flex items-center justify-center"
+                aria-label={company.name}
+              >
+                <img
+                  src={company.logo || "/placeholder.svg"}
+                  alt={`Logo de ${company.name}`}
+                  class="h-12 md:h-16 w-auto object-contain  rounded-[10px] hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -67,7 +70,7 @@ const logosRow2 = [
     white-space: nowrap;
     position: relative;
   }
-  
+
   .logos-slide {
     display: flex;
     animation-duration: 40s;
@@ -75,19 +78,19 @@ const logosRow2 = [
     animation-iteration-count: infinite;
     width: max-content;
   }
-  
+
   .logos-slide-track .logos-slide {
     animation-name: slide-left;
   }
-  
+
   .logos-slide-track-reverse .logos-slide {
     animation-name: slide-right;
   }
-  
+
   .logo-item {
     flex: 0 0 auto;
   }
-  
+
   @keyframes slide-left {
     0% {
       transform: translateX(0);
@@ -96,7 +99,7 @@ const logosRow2 = [
       transform: translateX(-50%);
     }
   }
-  
+
   @keyframes slide-right {
     0% {
       transform: translateX(-50%);
@@ -105,13 +108,13 @@ const logosRow2 = [
       transform: translateX(0);
     }
   }
-  
+
   /* Pausar la animación al pasar el cursor */
   .logos-slide-track:hover .logos-slide,
   .logos-slide-track-reverse:hover .logos-slide {
     animation-play-state: paused;
   }
-  
+
   /* Ajustes para dispositivos móviles */
   @media (max-width: 768px) {
     .logos-slide {
