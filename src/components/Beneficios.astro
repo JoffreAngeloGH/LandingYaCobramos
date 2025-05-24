@@ -1,88 +1,114 @@
 ---
-// src/components/Beneficios.astro
-
-// Reemplaza estos con tus SVGs reales de Lucide o componentes de icono Astro
-const RocketIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-blue-600 "><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.87 12.87 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>`;
-const MessageCircleIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-emerald-600 "><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>`;
-const LineChartIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-purple-600 "><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>`;
-const UsersIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-amber-600 "><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`;
+import IconRocket from "./icons/IconRocket.astro";
+import IconMessage from "./icons/IconMessage.astro";
+import IconChart from "./icons/IconChart.astro";
+import IconUsers from "./icons/IconUsers.astro";
+import IconDiamond from "./icons/IconDiamond.astro"; // Puedes crear este icono para "Facturación Inteligente"
 
 const benefitsData = [
   {
-    icon: RocketIcon,
+    icon: IconRocket,
     title: "Automatización inteligente",
-    description: "Automatiza tus ventas y gestión comercial en WhatsApp con IA, ahorrando tiempo y recursos.",
+    description:
+      "Automatiza tus ventas y gestión comercial en WhatsApp con IA, ahorrando tiempo y recursos.",
     color: "bg-blue-50 ",
-    iconBg: "bg-blue-100 d",
+    iconBg: "bg-blue-100 ",
   },
   {
-    icon: MessageCircleIcon,
+    icon: IconMessage,
     title: "Respuestas automáticas",
-    description: "Responde consultas y gestiona pedidos automáticamente, mejorando la experiencia del cliente.",
+    description:
+      "Responde consultas y gestiona pedidos automáticamente, mejorando la experiencia del cliente.",
     color: "bg-emerald-50 ",
     iconBg: "bg-emerald-100 ",
   },
   {
-    icon: LineChartIcon,
+    icon: IconChart,
     title: "Análisis de datos",
-    description: "Obtén insights valiosos sobre tus ventas y clientes para tomar mejores decisiones.",
+    description:
+      "Obtén insights valiosos sobre tus ventas y clientes para tomar mejores decisiones.",
     color: "bg-purple-50 ",
     iconBg: "bg-purple-100 ",
   },
   {
-    icon: UsersIcon,
+    icon: IconUsers,
     title: "Gestión de clientes",
-    description: "Organiza y segmenta tus clientes para ofrecer una atención personalizada y efectiva.",
+    description:
+      "Organiza y segmenta tus clientes para ofrecer una atención personalizada y efectiva.",
     color: "bg-amber-50 ",
     iconBg: "bg-amber-100 ",
+  },
+  {
+    icon: IconDiamond,
+    title: "Facturación Inteligente",
+    description:
+      "Factura en segundos, sin dolores de cabeza. Cumple con todas las normas locales y olvídate de la pérdida de tiempo.",
+    color: "bg-blue-50 ",
+    iconBg: "bg-blue-100 ",
   },
 ];
 ---
 
-<section id="beneficios" class="py-24 px-4 bg-white ">
-  <div class="container mx-auto max-w-5xl">
+<section id="beneficios" class="py-24 px-4 bg-white">
+  <div class="container mx-auto max-w-8xl">
     <div class="text-center mb-16 animate-on-scroll">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins ">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins">
         Beneficios que transforman tu negocio
       </h2>
-      <p class="text-gray-600  text-lg max-w-3xl mx-auto">
-        YoCobro no solo automatiza tus ventas, sino que transforma completamente tu operación para hacerla más
-        eficiente y rentable.
+      <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+        YoCobro no solo automatiza tus ventas, sino que transforma completamente
+        tu operación para hacerla más eficiente y rentable.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 benefits-grid-container">
-      {benefitsData.map((benefit, index) => (
-        <div
-          class:list={[
-            benefit.color,
-            "rounded-xl p-6 border border-gray-100  hover:shadow-lg transition-all duration-300 group",
-            "benefit-card" // Clase para la animación individual
-          ]}
-          data-stagger-index={index}
-        >
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 benefits-grid-container"
+    >
+      {
+        benefitsData.map((benefit, index) => (
           <div
             class:list={[
-              benefit.iconBg,
-              "rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
+              benefit.color,
+              "rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group",
+              "benefit-card",
             ]}
+            data-stagger-index={index}
           >
-            <Fragment set:html={benefit.icon} />
+            <div
+              class:list={[
+                benefit.iconBg,
+                "rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300",
+              ]}
+            >
+              <benefit.icon />
+            </div>
+            <h3 class="text-xl font-bold text-center mb-3">{benefit.title}</h3>
+            <p class="text-gray-600 text-center">{benefit.description}</p>
           </div>
-          <h3 class="text-xl font-bold text-center mb-3 ">{benefit.title}</h3>
-          <p class="text-gray-600  text-center">{benefit.description}</p>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
+  @media (min-width: 754px) and (max-width: 1018px) {
+    .benefits-grid-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+    .benefits-grid-container > .benefit-card:last-child {
+      grid-column: 1 / span 2 !important;
+      justify-self: center !important;
+      max-width: 350px;
+    }
+  }
   /* Estilos para la animación del bloque de título */
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
   }
   .animate-on-scroll.is-visible {
     opacity: 1;
@@ -106,50 +132,65 @@ const benefitsData = [
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const observerOptions: IntersectionObserverInit = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: "0px",
       threshold: 0.1, // Animar cuando el 10% del elemento es visible
     };
 
     // Animación para el bloque de título
-    const titleBlock = document.querySelector('.animate-on-scroll');
+    const titleBlock = document.querySelector(".animate-on-scroll");
     if (titleBlock) {
-      const titleObserver = new IntersectionObserver((entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Animar solo una vez
-          }
-        });
-      }, observerOptions);
+      const titleObserver = new IntersectionObserver(
+        (
+          entries: IntersectionObserverEntry[],
+          observer: IntersectionObserver
+        ) => {
+          entries.forEach((entry: IntersectionObserverEntry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target); // Animar solo una vez
+            }
+          });
+        },
+        observerOptions
+      );
       titleObserver.observe(titleBlock);
     }
 
     // Animación para el grid de beneficios (staggered)
-    const benefitsContainer = document.querySelector('.benefits-grid-container');
+    const benefitsContainer = document.querySelector(
+      ".benefits-grid-container"
+    );
     if (benefitsContainer) {
-      const benefitCards = benefitsContainer.querySelectorAll<HTMLElement>('.benefit-card');
+      const benefitCards =
+        benefitsContainer.querySelectorAll<HTMLElement>(".benefit-card");
       const staggerDelayBase = 100; // 0.1 segundos, igual a staggerChildren: 0.1
 
-      const benefitsObserver = new IntersectionObserver((entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting) {
-            benefitCards.forEach((card: HTMLElement) => {
-              const indexAttr = card.dataset.staggerIndex;
-              const index = indexAttr ? parseInt(indexAttr) : 0;
-              const delay = index * staggerDelayBase;
+      const benefitsObserver = new IntersectionObserver(
+        (
+          entries: IntersectionObserverEntry[],
+          observer: IntersectionObserver
+        ) => {
+          entries.forEach((entry: IntersectionObserverEntry) => {
+            if (entry.isIntersecting) {
+              benefitCards.forEach((card: HTMLElement) => {
+                const indexAttr = card.dataset.staggerIndex;
+                const index = indexAttr ? parseInt(indexAttr) : 0;
+                const delay = index * staggerDelayBase;
 
-              setTimeout(() => {
-                card.style.transitionDelay = `${delay}ms`; // Aplica el delay dinámicamente
-                card.classList.add('is-visible');
-              }, 0); // setTimeout con 0ms para asegurar que el delay se aplique antes de la transición
-            });
-            observer.unobserve(entry.target); // Observar el contenedor solo una vez
-          }
-        });
-      }, {...observerOptions, threshold: 0.05 }); // Umbral más bajo para el contenedor
+                setTimeout(() => {
+                  card.style.transitionDelay = `${delay}ms`; // Aplica el delay dinámicamente
+                  card.classList.add("is-visible");
+                }, 0); // setTimeout con 0ms para asegurar que el delay se aplique antes de la transición
+              });
+              observer.unobserve(entry.target); // Observar el contenedor solo una vez
+            }
+          });
+        },
+        { ...observerOptions, threshold: 0.05 }
+      ); // Umbral más bajo para el contenedor
       benefitsObserver.observe(benefitsContainer);
     }
   });
