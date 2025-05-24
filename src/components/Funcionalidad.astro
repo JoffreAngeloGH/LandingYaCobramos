@@ -10,17 +10,20 @@ const featuresList = [
   {
     icon: TabletIcon,
     title: "Vendedor Inteligente",
-    description: "Automatiza tus conversaciones de venta y personaliza la experiencia del cliente con IA avanzada.",
+    description:
+      "Automatiza tus conversaciones de venta y personaliza la experiencia del cliente con IA avanzada.",
   },
   {
     icon: BarChart3Icon,
     title: "Gestión Comercial y Administrativa",
-    description: "Organiza tus contactos, gestiona inventarios y controla tus finanzas en un solo lugar integrado.",
+    description:
+      "Organiza tus contactos, gestiona inventarios y controla tus finanzas en un solo lugar integrado.",
   },
   {
     icon: ReceiptIcon,
     title: "Facturación Electrónica Automática",
-    description: "Emite facturas electrónicas de forma rápida y sencilla, cumpliendo con todas las regulaciones locales.",
+    description:
+      "Emite facturas electrónicas de forma rápida y sencilla, cumpliendo con todas las regulaciones locales.",
   },
 ];
 
@@ -31,51 +34,80 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
 
 <section id="funcionalidades" class="py-24 px-4 bg-gray-900">
   <div class="container mx-auto">
-    <div class="text-center mb-16 animate-on-scroll" data-animation-type="fade-in-up">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white">Funcionalidad</h2>
-      <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-        Descubre todas las herramientas que YoCobro pone a tu disposición para impulsar tu negocio
+    <div
+      class="text-center mb-16 animate-on-scroll"
+      data-animation-type="fade-in-up"
+    >
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white">
+        Funcionalidad
+      </h2>
+      <p class="text-white/90 text-lg max-w-3xl mx-auto">
+        Descubre todas las herramientas que VendePe pone a tu disposición para
+        impulsar tu negocio
       </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div class="animate-on-scroll" data-animation-type="fade-in-left">
-        <div class="text-emerald-500 font-medium mb-2">Ventas y Gestión Automatizadas</div>
-        <h3 class="text-3xl font-bold mb-6 text-white">Impulsa tu negocio con YoCobro</h3>
-        <p class="text-gray-400 mb-8 text-lg">
-          YoCobro, el vendedor inteligente basado en IA, optimiza tus ventas y gestión comercial directamente desde
-          WhatsApp. Simplifica la facturación electrónica y la administración de tu negocio.
+        <div class="text-emerald-500 font-medium mb-2">
+          Ventas y Gestión Automatizadas
+        </div>
+        <h3 class="text-3xl font-bold mb-6 text-white">
+          Impulsa tu negocio con VendePe
+        </h3>
+        <p class="text-white/90 mb-8 text-lg">
+          VendePe, el vendedor inteligente basado en IA, optimiza tus ventas y
+          gestión comercial directamente desde WhatsApp. Simplifica la
+          facturación electrónica y la administración de tu negocio.
         </p>
 
         <div class="space-y-8">
-          {featuresList.map((feature, index) => (
-            <div
-              class="flex gap-4 group feature-item animate-on-scroll"
-              data-animation-type="fade-in-up-staggered"
-              data-stagger-index={index}
-            >
-              <div class="text-emerald-600 flex items-center mt-1 bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-800/50 transition-colors">
-                <Fragment set:html={feature.icon} />
+          {
+            featuresList.map((feature, index) => (
+              <div
+                class="flex gap-4 group feature-item animate-on-scroll"
+                data-animation-type="fade-in-up-staggered"
+                data-stagger-index={index}
+              >
+                <div class="text-emerald-600 flex items-center mt-1 bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-800/50 transition-colors">
+                  <Fragment set:html={feature.icon} />
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-2 text-emerald-500">
+                    {feature.title}
+                  </h4>
+                  <p class="text-white/90">{feature.description}</p>
+                </div>
               </div>
-              <div>
-                <h4 class="font-bold text-lg mb-2 text-white">{feature.title}</h4>
-                <p class="text-gray-400">{feature.description}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
-      <div class="relative animate-on-scroll" data-animation-type="fade-in-right">
-        <div class="absolute inset-0 bg-blue-700 rounded-3xl transform rotate-3 scale-95 opacity-20 blur-xl"></div>
-        <div class="bg-blue-700 rounded-3xl p-6 overflow-hidden relative shadow-xl">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 transform translate-x-10 -translate-y-10"></div>
-          <div class="absolute bottom-0 left-0 w-32 h-32  bg-blue-800 rounded-full opacity-20 transform -translate-x-10 translate-y-10"></div>
+      <div
+        class="relative animate-on-scroll"
+        data-animation-type="fade-in-right"
+      >
+        <div
+          class="absolute inset-0 bg-blue-700 rounded-3xl transform rotate-3 scale-95 opacity-20 blur-xl"
+        >
+        </div>
+        <div
+          class="bg-blue-700 rounded-3xl p-6 overflow-hidden relative shadow-xl"
+        >
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 transform translate-x-10 -translate-y-10"
+          >
+          </div>
+          <div
+            class="absolute bottom-0 left-0 w-32 h-32 bg-blue-800 rounded-full opacity-20 transform -translate-x-10 translate-y-10"
+          >
+          </div>
 
           <div class="relative rounded-xl overflow-hidden shadow-lg">
             <img
               src={imageUrl}
-              alt="Visualización de la funcionalidad de YoCobro"
+              alt="Visualización de la funcionalidad de VendePe"
               width="500"
               height="400"
               class="w-full h-auto object-cover"
@@ -123,16 +155,20 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const observerOptions: IntersectionObserverInit = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: "0px",
       threshold: 0.1, // Animar cuando el 10% del elemento es visible
     };
 
-    const animatedElements = document.querySelectorAll<HTMLElement>('.animate-on-scroll');
+    const animatedElements =
+      document.querySelectorAll<HTMLElement>(".animate-on-scroll");
 
-    const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    const observerCallback = (
+      entries: IntersectionObserverEntry[],
+      observer: IntersectionObserver
+    ) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           const target = entry.target as HTMLElement;
@@ -148,14 +184,17 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
             // o aquí para más control si el delay varía mucho.
             target.style.transitionDelay = `${delay}ms`;
           }
-          
-          target.classList.add('is-visible');
+
+          target.classList.add("is-visible");
           observer.unobserve(target); // Animar solo una vez
         }
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    animatedElements.forEach(el => observer.observe(el));
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+    animatedElements.forEach((el) => observer.observe(el));
   });
 </script>

@@ -1,98 +1,83 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react";
 
 const testimonials = [
   {
     quote:
-      "YoCobro ha transformado la forma en que gestionamos nuestras ventas por WhatsApp. La automatización nos ha permitido ahorrar tiempo y aumentar nuestros ingresos significativamente.",
-    author: "María Rodriguez",
-    role: "Fundadora de TienMia",
-    avatar: "/placeholder.svg?height=100&width=100",
+      "Lo que antes me tomaba horas al día, ahora sucede solo. Con respuestas automáticas, ventas inteligentes y facturación automática, mi negocio funciona las 24 horas sin que yo tenga que estar siempre conectado.",
+    author: "Bryan Villafuerte",
+    role: "Green Cycle",
+    avatar: "/images/logos/LogoTestimonioB.svg",
   },
-  {
-    quote:
-      "Desde que implementamos YoCobro, nuestras ventas han aumentado un 35%. La capacidad de responder automáticamente a los clientes 24/7 ha sido un cambio radical para nuestro negocio.",
-    author: "Carlos Mendoza",
-    role: "CEO de TechStore",
-    avatar: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    quote:
-      "La facturación electrónica automática nos ha ahorrado horas de trabajo administrativo. Ahora podemos enfocarnos en lo que realmente importa: hacer crecer nuestro negocio.",
-    author: "Laura Sánchez",
-    role: "Gerente de Operaciones",
-    avatar: "/placeholder.svg?height=100&width=100",
-  },
-]
+];
 
 export default function Testimonios() {
-  const [current, setCurrent] = useState(0)
-  const [autoplay, setAutoplay] = useState(true)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [direction, setDirection] = useState(1) // 1 for next, -1 for prev
-  const timeoutRef = useRef(null)
+  const [current, setCurrent] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState(1); // 1 for next, -1 for prev
+  const timeoutRef = useRef(null);
 
-   const touchStartX = useRef(null)
-  const touchEndX = useRef(null)
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   // Manejar inicio del toque
   const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX
-  }
+    touchStartX.current = e.touches[0].clientX;
+  };
 
   // Manejar movimiento del toque (opcional, por si quieres feedback en tiempo real)
   const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX
-  }
+    touchEndX.current = e.touches[0].clientX;
+  };
 
   // Manejar fin del toque
   const handleTouchEnd = () => {
     if (touchStartX.current !== null && touchEndX.current !== null) {
-      const distance = touchStartX.current - touchEndX.current
+      const distance = touchStartX.current - touchEndX.current;
       if (distance > 50) {
         // Swipe izquierda (siguiente)
-        next()
-        setAutoplay(false)
+        next();
+        setAutoplay(false);
       } else if (distance < -50) {
         // Swipe derecha (anterior)
-        prev()
-        setAutoplay(false)
+        prev();
+        setAutoplay(false);
       }
     }
-    touchStartX.current = null
-    touchEndX.current = null
-  }
-
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   const next = () => {
-    if (isAnimating) return
-    setDirection(1)
-    setIsAnimating(true)
-    setCurrent((current + 1) % testimonials.length)
-  }
+    if (isAnimating) return;
+    setDirection(1);
+    setIsAnimating(true);
+    setCurrent((current + 1) % testimonials.length);
+  };
 
   const prev = () => {
-    if (isAnimating) return
-    setDirection(-1)
-    setIsAnimating(true)
-    setCurrent((current - 1 + testimonials.length) % testimonials.length)
-  }
+    if (isAnimating) return;
+    setDirection(-1);
+    setIsAnimating(true);
+    setCurrent((current - 1 + testimonials.length) % testimonials.length);
+  };
 
   useEffect(() => {
-    if (!autoplay) return
+    if (!autoplay) return;
 
-    timeoutRef.current = setTimeout(next, 5000)
+    timeoutRef.current = setTimeout(next, 5000);
     return () => {
       if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
+        clearTimeout(timeoutRef.current);
       }
-    }
-  }, [current, autoplay])
+    };
+  }, [current, autoplay]);
 
   const handleAnimationEnd = () => {
-    setIsAnimating(false)
-  }
+    setIsAnimating(false);
+  };
 
   return (
     <section id="testimonios" className="py-24 px-4 bg-gray-50 overflow-hidden">
@@ -102,18 +87,20 @@ export default function Testimonios() {
             Lo que dicen nuestros clientes
           </h2>
           <p className="text-gray-600  text-lg max-w-3xl mx-auto">
-            Descubre cómo YoCobro ha transformado los negocios de nuestros clientes
+            Descubre cómo VendePe ha transformado los negocios de nuestros
+            clientes
           </p>
         </div>
 
         <div className="relative">
-          {/* Botón Prev - SOLO visible en md+ */}
+          {/* 
+          // Botón Prev - SOLO visible en md+
           <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 -left-4 z-10">
             <button
               className="rounded-full bg-white  shadow-md hover:shadow-lg border border-gray-200  p-2"
               onClick={() => {
-                prev()
-                setAutoplay(false)
+                prev();
+                setAutoplay(false);
               }}
               aria-label="Testimonio anterior"
             >
@@ -132,6 +119,7 @@ export default function Testimonios() {
               </svg>
             </button>
           </div>
+          */}
 
           <div
             className="overflow-hidden px-4"
@@ -142,7 +130,11 @@ export default function Testimonios() {
             <div className="flex justify-center">
               <div
                 className={`bg-white  rounded-2xl shadow-xl p-8 max-w-3xl ${
-                  isAnimating ? (direction > 0 ? "slide-left" : "slide-right") : ""
+                  isAnimating
+                    ? direction > 0
+                      ? "slide-left"
+                      : "slide-right"
+                    : ""
                 }`}
                 onAnimationEnd={handleAnimationEnd}
                 onMouseEnter={() => setAutoplay(false)}
@@ -177,21 +169,26 @@ export default function Testimonios() {
                     />
                   </div>
                   <div>
-                    <div className="font-bold text-lg ">{testimonials[current].author}</div>
-                    <div className="text-gray-500 ">{testimonials[current].role}</div>
+                    <div className="font-bold text-lg ">
+                      {testimonials[current].author}
+                    </div>
+                    <div className="text-gray-500 ">
+                      {testimonials[current].role}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Botón Next - SOLO visible en md+ */}
+          {/*
+          // Botón Next - SOLO visible en md+
           <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-4 z-10">
             <button
               className="rounded-full bg-white  shadow-md hover:shadow-lg border border-gray-200  p-2"
               onClick={() => {
-                next()
-                setAutoplay(false)
+                next();
+                setAutoplay(false);
               }}
               aria-label="Siguiente testimonio"
             >
@@ -210,14 +207,16 @@ export default function Testimonios() {
               </svg>
             </button>
           </div>
+          */}
 
-          {/* Botones debajo del card SOLO en móviles */}
+          {/*
+          // Botones debajo del card SOLO en móviles
           <div className="flex md:hidden justify-center gap-6 mt-6">
             <button
               className="rounded-full bg-white  shadow-md hover:shadow-lg border border-gray-200  p-2"
               onClick={() => {
-                prev()
-                setAutoplay(false)
+                prev();
+                setAutoplay(false);
               }}
               aria-label="Testimonio anterior"
             >
@@ -238,8 +237,8 @@ export default function Testimonios() {
             <button
               className="rounded-full bg-white  shadow-md hover:shadow-lg border border-gray-200 d p-2"
               onClick={() => {
-                next()
-                setAutoplay(false)
+                next();
+                setAutoplay(false);
               }}
               aria-label="Siguiente testimonio"
             >
@@ -258,25 +257,28 @@ export default function Testimonios() {
               </svg>
             </button>
           </div>
+          */}
         </div>
 
-        <div className="flex justify-center mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              className={`w-3 h-3 mx-1 rounded-full transition-all duration-300 ${
-                current === index
-                  ? "bg-blue-500 w-6"
-                  : "bg-gray-300  hover:bg-gray-400 "
-              }`}
-              onClick={() => {
-                setCurrent(index)
-                setAutoplay(false)
-              }}
-              aria-label={`Ver testimonio ${index + 1}`}
-            />
-          ))}
-        </div>
+        {
+          <div className="flex justify-center mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 mx-1 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? "bg-blue-500 w-6"
+                    : "bg-gray-300  hover:bg-gray-400 "
+                }`}
+                onClick={() => {
+                  setCurrent(index);
+                  setAutoplay(false);
+                }}
+                aria-label={`Ver testimonio ${index + 1}`}
+              />
+            ))}
+          </div>
+        }
       </div>
 
       {/* ...styles... */}
@@ -291,7 +293,7 @@ export default function Testimonios() {
             transform: translateX(0);
           }
         }
-        
+
         @keyframes slideRight {
           0% {
             opacity: 0;
@@ -302,15 +304,15 @@ export default function Testimonios() {
             transform: translateX(0);
           }
         }
-        
+
         .slide-left {
           animation: slideLeft 0.5s ease-out forwards;
         }
-        
+
         .slide-right {
           animation: slideRight 0.5s ease-out forwards;
         }
       `}</style>
     </section>
-  )
+  );
 }

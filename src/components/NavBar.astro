@@ -20,18 +20,20 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
 
     <div class="flex items-center gap-4">
       <nav class="hidden md:flex items-center gap-8">
-        {navItems.map(item => (
-          <a
-            href={item.href}
-            class="font-medium text-[20px] text-white hover:text-yellow-300 transition-colors"
-          >
-            {item.label}
-          </a>
-        ))}
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="font-medium text-[20px] text-white hover:text-yellow-300 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))
+        }
       </nav>
 
       <a
-        href="https://wa.me/51999999999"
+        href="https://wa.me/51999115320?text=Hola%20me%20gustaría%20tener%20mi%20propio%20asistente%20de%20venta%20inteligente"
         target="_blank"
         rel="noopener noreferrer"
         class="hidden md:flex items-center justify-center text-[17px] bg-white text-emerald-600 hover:bg-white/90 transition-all duration-300 shadow-md hover:shadow-lg px-4 py-2 text-sm rounded-md font-medium"
@@ -71,14 +73,16 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
     </div>
 
     <nav class="flex flex-col gap-6 text-center">
-      {navItems.map(item => (
-        <a
-          href={item.href}
-          class="mobile-menu-link text-xl font-medium text-white py-2"
-        >
-          {item.label}
-        </a>
-      ))}
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="mobile-menu-link text-xl font-medium text-white py-2"
+          >
+            {item.label}
+          </a>
+        ))
+      }
     </nav>
 
     <div class="mt-auto">

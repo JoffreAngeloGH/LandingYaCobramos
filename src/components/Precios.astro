@@ -1,93 +1,123 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 ---
 
-<section id="precio" class="py-24 px-4 bg-white ">
+<section id="precio" class="py-24 px-4 bg-white">
   <div class="container mx-auto max-w-5xl">
     <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins ">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins">
         Planes simples, resultados extraordinarios
       </h2>
-      <p class="text-gray-600  text-lg max-w-3xl mx-auto">
-        Elige el plan que mejor se adapte a las necesidades de tu negocio y comienza a transformar tu operación
+      <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+        Elige el plan que mejor se adapte a las necesidades de tu negocio y
+        comienza a transformar tu operación
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {[
-        {
-          title: "Emprende",
-          subtitle: "Para pequeños negocios",
-          price: "S/100",
-          features: ["Automatización básica", "Respuestas automáticas", "Facturación electrónica"],
-          highlighted: false,
-          delay: 0,
-        },
-        {
-          title: "Profesional",
-          subtitle: "Para negocios en crecimiento",
-          price: "S/100",
-          features: ["Todo lo de Emprende", "Análisis de datos", "Integración con CRM", "Soporte prioritario"],
-          highlighted: true,
-          delay: 100,
-          badge: "Recomendado",
-        },
-        {
-          title: "Corporativo",
-          subtitle: "Para empresas establecidas",
-          price: "S/100",
-          features: ["Todo lo de Profesional", "API personalizada", "Múltiples usuarios", "Soporte 24/7"],
-          highlighted: false,
-          delay: 200,
-        },
-      ].map((plan, index) => (
-        <div
-          class={`rounded-2xl overflow-hidden bg-white  border reveal ${
-            plan.highlighted
-              ? "border-blue-500 shadow-lg shadow-blue-100  relative"
-              : "border-gray-200 "
-          }`}
-          data-delay={plan.delay}
-        >
-          {plan.highlighted && plan.badge && (
-            <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-              {plan.badge}
-            </div>
-          )}
-          <div class={`p-8 ${plan.highlighted ? "bg-blue-50 " : ""}`}>
-            <h3 class="text-2xl font-bold mb-1 ">{plan.title}</h3>
-            <p class="text-gray-500  text-sm mb-6">{plan.subtitle}</p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold ">{plan.price}</span>
-              <span class="text-gray-500 ">/mes</span>
-            </div>
-            <div class="space-y-4 mb-8">
-              {plan.features.map((feature, i) => (
-                <div class="flex items-center text-gray-700 ">
-                  <div
-                    class={`flex-shrink-0 mr-3 ${plan.highlighted ? "text-blue-500 " : "text-emerald-500 "}`}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
+      {
+        [
+          {
+            title: "Emprende",
+            subtitle: "",
+            price: "$99",
+            features: [
+              "Implementación 7 días",
+              "2 número de whatsapp",
+              "Hasta 12 productos",
+            ],
+            highlighted: false,
+            delay: 0,
+          },
+          {
+            title: "Profesional",
+            subtitle: "",
+            price: "$149",
+            features: [
+              "Implementación 7 días",
+              "3 número de whatsapp",
+              "Hasta 17 productos",
+              "Módulo de análisis",
+            ],
+            highlighted: true,
+            delay: 100,
+            badge: "Recomendado",
+          },
+          {
+            title: "Corporativo",
+            subtitle: "",
+            price: "$249",
+            features: [
+              "Implementación 7 días",
+              "5 número de whatsapp",
+              "Hasta 28 productos",
+              "Soporte especializado",
+              "Módulo de análisis",
+            ],
+            highlighted: false,
+            delay: 200,
+          },
+        ].map((plan, index) => (
+          <div
+            class={`rounded-2xl overflow-hidden bg-white  border reveal ${
+              plan.highlighted
+                ? "border-blue-500 shadow-lg shadow-blue-100  relative"
+                : "border-gray-200 "
+            }`}
+            data-delay={plan.delay}
+          >
+            {plan.highlighted && plan.badge && (
+              <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                {plan.badge}
+              </div>
+            )}
+            <div class={`p-8 ${plan.highlighted ? "bg-blue-50 " : ""}`}>
+              <h3 class="text-2xl font-bold mb-1 ">{plan.title}</h3>
+              <p class="text-gray-500  text-sm mb-6">{plan.subtitle}</p>
+              <div class="mb-6">
+                <span class="text-4xl font-bold ">{plan.price}</span>
+                <span class="text-gray-500 ">/mes</span>
+              </div>
+              <div class="space-y-4 mb-8">
+                {plan.features.map((feature, i) => (
+                  <div class="flex items-center text-gray-700 ">
+                    <div
+                      class={`flex-shrink-0 mr-3 ${plan.highlighted ? "text-blue-500 " : "text-emerald-500 "}`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span class="font-medium">{feature}</span>
                   </div>
-                  <span>{feature}</span>
-                </div>
-              ))}
+                ))}
+              </div>
+              <a
+                href="https://wa.me/51999115320?text=Hola%20me%20gustaría%20tener%20mi%20propio%20asistente%20de%20venta%20inteligente"
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`block w-full py-4 px-6 rounded-md text-center font-medium transition-colors ${
+                  plan.highlighted
+                    ? "bg-blue-600 hover:bg-blue-700 text-white  "
+                    : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 "
+                }`}
+              >
+                Empezar ahora
+              </a>
             </div>
-            <a
-              href="#contacto"
-              class={`block w-full py-4 px-6 rounded-md text-center font-medium transition-colors ${
-                plan.highlighted
-                  ? "bg-blue-600 hover:bg-blue-700 text-white  "
-                  : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 "
-              }`}
-            >
-              Empezar ahora
-            </a>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
