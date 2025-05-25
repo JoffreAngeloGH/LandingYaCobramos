@@ -2,35 +2,110 @@
 import "../styles/global.css";
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
-import ButtonWhats from "../components/ButtonWhats.astro"
+import ButtonWhats from "../components/ButtonWhats.astro";
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>YaCobramos</title>
-	</head>
-	<body>
-		<NavBar />
-		<slot />
-		<Footer />
-		<ButtonWhats />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      VendePe | Automatiza tus Ventas con IA y No Pierdas el Trato Humano
+    </title>
+    <meta
+      name="description"
+      content="Automatiza y potencia las ventas de tu negocio con VendePe. Software con IA para gestión comercial, facturación electrónica, atención al cliente y más. ¡Tu aliado para crecer!"
+    />
+    <meta
+      property="og:title"
+      content="VendePe: Automatiza Ventas, Potencia tu Negocio con IA"
+    />
+    <meta
+      property="og:description"
+      content="Descubre VendePe, el software con inteligencia artificial que automatiza tus ventas, gestiona clientes, emite facturas y más, manteniendo la cercanía con tus clientes."
+    />
+    <meta property="og:image" content="/images/LogoVendePe.png" />
+    <meta property="og:url" content="https://VendePe.com/" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="VendePe: Automatiza Ventas, Potencia tu Negocio con IA"
+    />
+    <meta
+      name="twitter:description"
+      content="Descubre VendePe, el software con inteligencia artificial que automatiza tus ventas, gestiona clientes, emite facturas y más, manteniendo la cercanía con tus clientes."
+    />
+    <meta name="twitter:image" content="/images/LogoVendePe.png" />
+    <link rel="canonical" href="https://VendePe.com/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "VendePe",
+        "description": "Software con inteligencia artificial para la automatización de ventas, gestión de clientes, facturación electrónica y atención comercial para negocios, manteniendo el trato humano.",
+        "url": "https://VendePe.com/",
+        "operatingSystem": "Web",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "99",
+          "priceCurrency": "USD",
+          "name": "Plan Emprende"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "250"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Vende",
+          "url": "https://VendePe.com/"
+          // Añadir logo, dirección si es posible
+        }
+      }
+    </script>
+
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+      type="image/svg+xml"
+      href="/images/favicon2.svg"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      type="image/svg+xml"
+      href="/images/favicon2.svg"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon2.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>VendePe</title>
+  </head>
+  <body>
+    <NavBar />
+    <slot />
+    <Footer />
+    <ButtonWhats />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-        width: 100vw;
-        max-width: 100vw;
-        height: 100%;
-        overflow-x: hidden;
-	}
-	html {
-        scroll-behavior: smooth;
-    }
+  html,
+  body {
+    margin: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
 </style>

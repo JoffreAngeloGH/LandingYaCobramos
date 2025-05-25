@@ -21,12 +21,13 @@ import { Image } from "astro:assets";
             {
               question: "¿Necesito conocimientos técnicos para usar VendePe?",
               answer:
-                "VendePe es ideal para e-commerce, tiendas minoristas, servicios profesionales, restaurantes, agencias y cualquier negocio que reciba consultas o ventas por WhatsApp. Si tus clientes te contactan para hacer preguntas o comprar, VendePe puede ayudarte a automatizar y escalar.",
+                "No, no necesitas tener conocimientos técnicos. VendePe está diseñado para ser fácil de usar y adaptarse a distintos tipos de negocios como e-commerce, tiendas minoristas, servicios profesionales, restaurantes y agencias. Si tus clientes se comunican por WhatsApp para hacer consultas o realizar compras, VendePe te ayuda a automatizar y escalar esas interacciones sin complicaciones.",
             },
             {
-              question: "¿Cómo se integra VendePe con WhatsApp?",
+              question:
+                "¿Que diferencia a VendePE en relación a los competidores?",
               answer:
-                "VendePe se integra fácilmente con WhatsApp Business API, permitiéndote automatizar conversaciones sin necesidad de configuraciones complejas. Nuestro equipo te guía en todo el proceso de integración para que puedas empezar a usarlo rápidamente.",
+                "VendePe combina inteligencia artificial con automatización comercial para ofrecerte una solución integral: atrae clientes, responde automáticamente, cierra ventas y emite facturas sin intervención manual. Es la única herramienta que une ventas inteligentes, gestión comercial y facturación automática en una sola plataforma para ayudarte a crecer más rápido y con menos esfuerzo.",
             },
             {
               question: "¿Puedo personalizar las respuestas automáticas?",
@@ -63,9 +64,9 @@ import { Image } from "astro:assets";
               </button>
               <div
                 id={`accordion-content-${index}`}
-                class="px-6 pb-4 pt-0 text-gray-400 accordion-content hidden"
+                class="px-6 pb-4 pt-0 text-gray-400 accordion-content "
               >
-                <p class="pt-2">{faq.answer}</p>
+                <p class="pt-2 text-white/90">{faq.answer}</p>
               </div>
             </div>
           ))
@@ -74,6 +75,40 @@ import { Image } from "astro:assets";
     </div>
   </div>
 </section>
+
+<style>
+  /* ... (tu CSS existente para el header y otras secciones) ... */
+
+  /* Estilos para el contenido del acordeón (respuesta) */
+  .accordion-content {
+    max-height: 0; /* Por defecto, la altura máxima es 0 (cerrado) */
+    overflow: hidden; /* Oculta cualquier contenido que exceda la altura */
+    opacity: 0; /* Inicia con opacidad 0 para una transición más suave */
+    /* Define la transición para max-height y opacity */
+    transition:
+      max-height 0.5s ease-in-out,
+      opacity 0.5s ease-in-out,
+      padding 0.5s ease-in-out;
+  }
+
+  /* Clase que se añade cuando el acordeón está abierto */
+  .accordion-content.is-open {
+    max-height: 500px; /* Un valor lo suficientemente grande para contener la respuesta más larga */
+    opacity: 1; /* Hace el contenido visible */
+    padding-top: 1rem; /* Añade un poco de padding superior cuando está abierto, si `pt-0` lo permite */
+  }
+
+  /* Estilos para el ícono de rotación (ya lo tienes, solo verifico la transición) */
+  .accordion-icon {
+    transition: transform 0.3s ease-in-out; /* Asegura una rotación suave */
+  }
+
+  .accordion-icon.rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  /* ... (tus media queries existentes) ... */
+</style>
 
 <script>
   function setupAccordion() {
@@ -88,7 +123,7 @@ import { Image } from "astro:assets";
         button.addEventListener("click", () => {
           const expanded = button.getAttribute("aria-expanded") === "true";
 
-          // Cerrar todos los acordeones
+          // Cerrar todos los demás acordeones
           accordionItems.forEach((otherItem) => {
             const otherButton = otherItem.querySelector("button");
             const otherContent = otherItem.querySelector(".accordion-content");
@@ -101,14 +136,14 @@ import { Image } from "astro:assets";
               otherIcon
             ) {
               otherButton.setAttribute("aria-expanded", "false");
-              otherContent.classList.add("hidden");
+              otherContent.classList.remove("is-open"); // Usar remove 'is-open'
               otherIcon.classList.remove("rotate-180");
             }
           });
 
           // Alternar el estado del acordeón actual
           button.setAttribute("aria-expanded", (!expanded).toString());
-          content.classList.toggle("hidden");
+          content.classList.toggle("is-open"); // Usar toggle 'is-open'
           icon.classList.toggle("rotate-180");
         });
       }
@@ -117,6 +152,6 @@ import { Image } from "astro:assets";
 
   // Ejecutar cuando el DOM esté listo
   document.addEventListener("DOMContentLoaded", setupAccordion);
-  // También ejecutar cuando cambie la página con ViewTransitions
+  // También ejecutar cuando cambie la página con ViewTransitions (si estás usando Astro)
   document.addEventListener("astro:page-load", setupAccordion);
 </script>

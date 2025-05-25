@@ -29,7 +29,7 @@ const featuresList = [
 
 // Asumimos que tienes una imagen en public/images/funcionalidad-placeholder.jpg
 // o reemplaza con la URL correcta o importa desde src/assets si usas <Image> de astro:assets
-const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RUTA DE IMAGEN
+const imageUrl = "/images/FuncionalidadVendePe.png"; // CAMBIA ESTO A TU RUTA DE IMAGEN
 ---
 
 <section id="funcionalidades" class="py-24 px-4 bg-gray-900">
@@ -85,16 +85,14 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
       </div>
 
       <div
-        class="relative animate-on-scroll"
+        class="relative animate-on-scroll animate-float"
         data-animation-type="fade-in-right"
       >
         <div
           class="absolute inset-0 bg-blue-700 rounded-3xl transform rotate-3 scale-95 opacity-20 blur-xl"
         >
         </div>
-        <div
-          class="bg-blue-700 rounded-3xl p-6 overflow-hidden relative shadow-xl"
-        >
+        <div class="">
           <div
             class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 transform translate-x-10 -translate-y-10"
           >
@@ -121,6 +119,22 @@ const imageUrl = "/images/funcionalidad-placeholder.jpg"; // CAMBIA ESTO A TU RU
 </section>
 
 <style>
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
   .animate-on-scroll {
     opacity: 0;
     transition-property: opacity, transform;
