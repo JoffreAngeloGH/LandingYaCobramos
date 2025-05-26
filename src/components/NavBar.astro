@@ -22,7 +22,7 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
     </a>
 
     <div class="flex items-center gap-4">
-      <nav class="hidden md:flex items-center gap-8">
+      <nav class="hidden custom-md:flex items-center gap-8">
         {
           navItems.map((item) => (
             <a
@@ -35,11 +35,12 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         }
       </nav>
 
+      <!-- El botón SIEMPRE visible hasta 425px, aunque el menú esté en hamburguesa -->
       <a
         href="https://wa.me/51999115320?text=Hola%20me%20gustaría%20tener%20mi%20propio%20asistente%20de%20venta%20inteligente"
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden md:flex items-center justify-center text-[17px] bg-white text-emerald-600 hover:bg-white/90 transition-all duration-300 shadow-md hover:shadow-lg px-4 py-2 text-sm rounded-md font-medium"
+        class="demo-btn items-center justify-center text-[17px] bg-white text-emerald-600 hover:bg-white/90 transition-all duration-300 shadow-md hover:shadow-lg px-4 py-2 text-sm rounded-md font-medium"
       >
         Solicita una demo
       </a>
@@ -47,7 +48,7 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       <button
         type="button"
         id="open-menu-button"
-        class="md:hidden text-white p-2"
+        class="custom-md:hidden text-white p-2"
         aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="mobile-menu-panel"
@@ -60,7 +61,7 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
 
   <div
     id="mobile-menu-panel"
-    class="fixed inset-0 bg-black/95 z-50 flex flex-col p-6 transition-transform duration-300 transform translate-x-full md:hidden"
+    class="fixed inset-0 bg-black/95 z-50 flex flex-col p-6 transition-transform duration-300 transform translate-x-full custom-md:hidden"
   >
     <div class="flex justify-between items-center mb-10">
       <a href="/" class="flex items-center text-2xl font-bold font-poppins">
@@ -91,17 +92,52 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       }
     </nav>
 
+    <!-- El botón dentro del menú hamburguesa solo visible en <=425px -->
     <div class="mt-auto">
       <a
-        href="#solicita-demo-mobile"
-        id="mobile-demo-button"
-        class="mobile-menu-link block w-full bg-white text-emerald-600 hover:bg-white/90 py-4 mb-20 text-lg rounded-md text-center font-medium"
+        href="https://wa.me/51999115320?text=Hola%20me%20gustaría%20tener%20mi%20propio%20asistente%20de%20venta%20inteligente"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full bg-white text-emerald-600 hover:bg-white/90 py-4 mb-20 text-lg rounded-md text-center font-medium demo-btn-mobile"
       >
         Solicita una demo
       </a>
     </div>
   </div>
 </header>
+
+<style>
+  /* Tailwind: custom breakpoint for 1014px */
+  @media (min-width: 1014px) {
+    .custom-md\:flex { display: flex !important; }
+    .custom-md\:hidden { display: none !important; }
+  }
+  @media (max-width: 1013px) {
+    .custom-md\:flex { display: none !important; }
+    .custom-md\:hidden { display: flex !important; }
+  }
+
+  /* El botón fuera del menú hamburguesa: visible hasta 425px */
+  .demo-btn {
+    display: flex !important;
+  }
+  @media (max-width: 425px) {
+    .demo-btn {
+      display: none !important;
+    }
+  }
+
+  /* El botón dentro del menú hamburguesa: solo visible en <=425px */
+  .demo-btn-mobile {
+    display: none !important;
+  }
+  @media (max-width: 425px) {
+    .demo-btn-mobile {
+      display: block !important;
+    }
+  }
+</style>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
