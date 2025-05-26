@@ -83,7 +83,7 @@ export default function Testimonios() {
     <section id="testimonios" className="py-24 px-4 bg-gray-50 overflow-hidden">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-poppins ">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-[#3B4E73] ">
             Lo que dicen nuestros clientes
           </h2>
           <p className="text-gray-600  text-lg max-w-3xl mx-auto">
