@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  astro-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: astro-app:latest
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    # Opcional: para desarrollo local monta el código
+    # volumes:
+    #   - .:/app
+    restart: unless-stopped
