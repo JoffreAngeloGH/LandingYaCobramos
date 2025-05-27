@@ -1,30 +1,12 @@
-# Etapa 1: Build
-FROM node:20-alpine AS builder
-
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
+FROM node:lts AS build
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
+RUN corepack enable
+COPY . .
+RUN pnpm run build
 
-COPY package.json pnpm-lock.yaml ./
-COPY astro.config.* tsconfig.* ./
-COPY public ./public
-COPY src ./src
-
-RUN pnpm install --frozen-lockfile
-RUN pnpm build
-
-# Etapa 2: Runner
-FROM node:20-alpine AS runner
-
-# ⛳️ Usamos npm porque ya viene incluido
-RUN npm install -g serve
-
-RUN adduser -D astro
-USER astro
-
-WORKDIR /home/astro/app
-
-COPY --from=builder /app/dist ./dist
-
-EXPOSE 4321
-CMD ["serve", "dist", "-l", "4321"]
+FROM nginx:alpine AS runtime
+COPY ./docker/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
