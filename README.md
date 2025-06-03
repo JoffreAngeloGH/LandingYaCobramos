@@ -3,7 +3,7 @@
 **VendePe**, el vendedor inteligente basado en **IA**, optimiza tus ventas y la gestión comercial directamente desde **WhatsApp**. Además, simplifica la **facturación electrónica** y la administración de tu negocio con una plataforma rápida, accesible y moderna.
 
 <p align="center">
-  <img src="./public/GirasolCampañaBanner.png" alt="Vista previa del sitio" width="800"/>
+  <img src="./public/VendePeBanner.png" alt="Vista previa del sitio" width="900"/>
 </p>
 
 ## 🚀 Tecnologías utilizadas
