@@ -1,6 +1,6 @@
 ---
 const navItems = [
-  { label: "Inicio", href: "/" },
+  { label: "Inicio", href: "/#inicio" },
   { label: "Beneficios", href: "/#beneficios" },
   { label: "Funcionalidades", href: "/#funcionalidades" },
   { label: "Precio", href: "/#precio" },
@@ -46,6 +46,15 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       </a>
 
       <button
+        id="lang-switcher-navbar"
+        class="px-4 py-2 rounded-md bg-white text-emerald-600 font-medium text-sm border border-emerald-600 hover:bg-emerald-50 transition-colors"
+        aria-label="Cambiar idioma"
+        type="button"
+      >
+        EN
+      </button>
+
+      <button
         type="button"
         id="open-menu-button"
         class="custom-md:hidden text-white p-2"
@@ -65,9 +74,9 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
   >
     <div class="flex justify-between items-center mb-10">
       <a href="/" class="flex items-center text-2xl font-bold font-poppins">
-          <span class="text-white">Vende</span>
-          <span class="text-[#3D5AFE]">Pe</span>
-        </a>
+        <span class="text-white">Vende</span>
+        <span class="text-[#3D5AFE]">Pe</span>
+      </a>
       <button
         type="button"
         id="close-menu-button"
@@ -109,12 +118,20 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
 <style>
   /* Tailwind: custom breakpoint for 1014px */
   @media (min-width: 1014px) {
-    .custom-md\:flex { display: flex !important; }
-    .custom-md\:hidden { display: none !important; }
+    .custom-md\:flex {
+      display: flex !important;
+    }
+    .custom-md\:hidden {
+      display: none !important;
+    }
   }
   @media (max-width: 1013px) {
-    .custom-md\:flex { display: none !important; }
-    .custom-md\:hidden { display: flex !important; }
+    .custom-md\:flex {
+      display: none !important;
+    }
+    .custom-md\:hidden {
+      display: flex !important;
+    }
   }
 
   /* El botón fuera del menú hamburguesa: visible hasta 425px */
@@ -137,7 +154,6 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
     }
   }
 </style>
-
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -219,4 +235,871 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       }
     });
   });
+</script>
+<script>
+  // Traducciones
+  const translations = {
+    es: {
+      title: "Automatiza tus ventas sin perder el trato humano",
+      subtitle:
+        "Automatiza tus ventas con inteligencia artificial que responde, convence y factura 24/7. Ideal para empresas, pymes y e-commerce.",
+      demo: "Solicita una demo",
+      plans: "Ver planes",
+      benefit1: {
+        title: "Ahorra tiempo",
+        desc: "Automatiza respuestas y procesos de venta 24/7",
+      },
+      benefit2: {
+        title: "Aumenta ventas",
+        desc: "Mejora la conversión con respuestas inmediatas",
+      },
+      benefit3: {
+        title: "Reduce costos",
+        desc: "Optimiza recursos y personal de atención",
+      },
+      langBtn: "EN",
+      nav: ["Inicio", "Beneficios", "Funcionalidades", "Precio", "Testimonios"],
+      demonav: "Solicita una demo",
+      langBtnnav: "EN",
+      telefono: {
+        barrasup: "ModaExpress Asistente",
+        estado: "En linea",
+        conversacion: {
+          chat1: "Hola, ¿qué polos tienen disponibles? ",
+          chat2: {
+            saludo: "¡Hola! Aquí te muestro algunos modelos:",
+            producto1: "Polo azul clásico – S/45",
+            producto2: "Polo Negro minimal – S/50",
+            producto3: "Polo Rojo – S/50",
+          },
+          chat3: "El negro está bonito. ¿Tienen talla M?",
+          chat4: "¡Sí! Tenemos en M. ¿Te gustaría pedirlo ahora? ",
+        },
+      },
+      clientestitulo: "Ellos ya confian en nosotros:",
+      beneficios: {
+        beneficiotitulo: "Beneficios que transforman tu negocio",
+        beneficiodescripcion:
+          "VendePe no solo automatiza tus ventas, sino que transforma completamente tu operación para hacerla más eficiente y rentable.",
+        cartas: {
+          carta1: {
+            carta1titulo: "Automatización inteligente",
+            carta1descripcion:
+              "Automatiza tus ventas y gestión comercial en WhatsApp con IA, ahorrando tiempo y recursos.",
+          },
+          carta2: {
+            carta2titulo: "Respuestas automáticas",
+            carta2descripcion:
+              "Responde consultas y gestiona pedidos automáticamente, mejorando la experiencia del cliente.",
+          },
+          carta3: {
+            carta3titulo: "Análisis de datos",
+            carta3descripcion:
+              "Obtén insights valiosos sobre tus ventas y clientes para tomar mejores decisiones.",
+          },
+          carta4: {
+            carta4titulo: "Gestión de clientes",
+            carta4descripcion:
+              "Organiza y segmenta tus clientes para ofrecer una atención personalizada y efectiva.",
+          },
+          carta5: {
+            carta5titulo: "Facturación Inteligente",
+            carta5descripcion:
+              "Factura en segundos, sin dolores de cabeza. Cumple con todas las normas locales y olvídate de la pérdida de tiempo.",
+          },
+        },
+      },
+      funcionalidad: {
+        titulo: "¿Cómo funciona VendePe?",
+        descripcion: "Sigue estos simples pasos para automatizar tus ventas.",
+        badge: "Ventas y Gestión Automatizadas",
+        subtitulo: "Impulsa tu negocio con VendePe",
+        parrafo:
+          "VendePe, el vendedor inteligente basado en IA, optimiza tus ventas y gestión comercial directamente desde WhatsApp. Simplifica la facturación electrónica y la administración de tu negocio.",
+        paso1: {
+          titulo: "Conecta tu WhatsApp",
+          descripcion:
+            "Vincula tu número y comienza a recibir mensajes automáticamente.",
+        },
+        paso2: {
+          titulo: "Configura tu asistente",
+          descripcion: "Personaliza respuestas, productos y flujos de venta.",
+        },
+        paso3: {
+          titulo: "¡Empieza a vender!",
+          descripcion: "Tu asistente responde, vende y factura por ti 24/7.",
+        },
+      },
+      precios: {
+        titulo: "Planes simples, resultados extraordinarios",
+        descripcion:
+          "Elige el plan que mejor se adapte a las necesidades de tu negocio y comienza a transformar tu operación",
+        plan1: {
+          titulo: "Emprende",
+          subtitulo: "",
+          precio: "$99",
+          features: [
+            "Implementación 7 días",
+            "2 números de WhatsApp",
+            "Hasta 12 productos",
+          ],
+          cta: "Empezar ahora",
+        },
+        plan2: {
+          titulo: "Profesional",
+          subtitulo: "",
+          precio: "$149",
+          features: [
+            "Implementación 7 días",
+            "3 números de WhatsApp",
+            "Hasta 17 productos",
+            "Módulo de análisis",
+          ],
+          badge: "Recomendado",
+          cta: "Empezar ahora",
+        },
+        plan3: {
+          titulo: "Corporativo",
+          subtitulo: "",
+          precio: "$249",
+          features: [
+            "Implementación 7 días",
+            "5 números de WhatsApp",
+            "Hasta 28 productos",
+            "Soporte especializado",
+            "Módulo de análisis",
+          ],
+          cta: "Empezar ahora",
+        },
+      },
+      faq: {
+        titulo: "Preguntas Frecuentes",
+        descripcion:
+          "Todo lo que necesitas saber sobre VendePe y cómo puede ayudar en tu negocio",
+        items: [
+          {
+            question: "¿Necesito conocimientos técnicos para usar VendePe?",
+            answer:
+              "No, no necesitas tener conocimientos técnicos. VendePe está diseñado para ser fácil de usar y adaptarse a distintos tipos de negocios como e-commerce, tiendas minoristas, servicios profesionales, restaurantes y agencias. Si tus clientes se comunican por WhatsApp para hacer consultas o realizar compras, VendePe te ayuda a automatizar y escalar esas interacciones sin complicaciones.",
+          },
+          {
+            question:
+              "¿Que diferencia a VendePE en relación a los competidores?",
+            answer:
+              "VendePe combina inteligencia artificial con automatización comercial para ofrecerte una solución integral: atrae clientes, responde automáticamente, cierra ventas y emite facturas sin intervención manual. Es la única herramienta que une ventas inteligentes, gestión comercial y facturación automática en una sola plataforma para ayudarte a crecer más rápido y con menos esfuerzo.",
+          },
+          {
+            question: "¿Puedo personalizar las respuestas automáticas?",
+            answer:
+              "Sí, VendePe te permite personalizar completamente las respuestas automáticas según tu marca y tipo de negocio. Puedes crear flujos de conversación específicos para diferentes productos o servicios, adaptándose a las necesidades de tus clientes.",
+          },
+          {
+            question: "¿Qué pasa si necesito ayuda o soporte técnico?",
+            answer:
+              "Ofrecemos soporte técnico por chat, correo electrónico y llamada telefónica. Nuestro equipo está disponible para ayudarte con cualquier duda o problema que puedas tener. Además, contamos con una base de conocimientos completa con tutoriales y guías paso a paso.",
+          },
+        ],
+      },
+      testimonios: {
+        titulo: "Lo que dicen nuestros clientes",
+        descripcion:
+          "Descubre cómo VendePe ha transformado los negocios de nuestros clientes",
+        items: [
+          {
+            quote:
+              "Lo que antes me tomaba horas al día, ahora sucede solo. Con respuestas automáticas, ventas inteligentes y facturación automática, mi negocio funciona las 24 horas sin que yo tenga que estar siempre conectado.",
+            author: "Bryan Villafuerte",
+            role: "Green Cycle",
+            avatar: "/images/logos/LogoTestimonioB.svg",
+          },
+          // Agrega más testimonios aquí si tienes
+        ],
+      },
+      footer: {
+        desc: "Automatización inteligente para ventas, gestión comercial y facturación. ¡Tus ventas no duermen. Nuestra IA tampoco!",
+        quicklinks: "Enlaces rápidos",
+        links: {
+          inicio: "Inicio",
+          beneficios: "Beneficios",
+          funcionalidades: "Funcionalidades",
+          precios: "Precios",
+          testimonios: "Testimonios",
+        },
+        contact: "Contacto",
+        phone: "+51 999 115 320",
+        copyright: "© 2025 VendePe. Todos los derechos reservados.",
+        terminos: "Términos y condiciones",
+        privacidad: "Políticas de privacidad",
+      },
+    },
+    en: {
+      title: "Automate your sales without losing the human touch",
+      subtitle:
+        "Automate your sales with AI that responds, convinces, and invoices 24/7. Perfect for companies, SMEs, and e-commerce.",
+      demo: "Request a demo",
+      plans: "See plans",
+      benefit1: {
+        title: "Save time",
+        desc: "Automate responses and sales processes 24/7",
+      },
+      benefit2: {
+        title: "Increase sales",
+        desc: "Improve conversion with instant replies",
+      },
+      benefit3: {
+        title: "Reduce costs",
+        desc: "Optimize resources and support staff",
+      },
+      langBtn: "ES",
+      nav: ["Home", "Benefits", "Features", "Pricing", "Testimonials"],
+      demonav: "Request a demo",
+      langBtnnav: "ES",
+      phone: {
+        topBar: "ModaExpress Assistant",
+        status: "Online",
+        conversation: {
+          chat1: "Hello, what polo shirts do you have available?",
+          chat2: {
+            greeting: "Hi! Here are some models:",
+            product1: "Classic blue polo – S/45",
+            product2: "Minimalist black polo – S/50",
+            product3: "Red polo – S/50",
+          },
+          chat3: "The black one looks nice. Do you have size M?",
+          chat4: "Yes! We have it in M. Would you like to order it now?",
+        },
+      },
+      clientestitle: "They already trust us:",
+      benefits: {
+        benefitTitle: "Benefits that transform your business",
+        benefitDescription:
+          "VendePe doesn’t just automate your sales—it completely transforms your operations to make them more efficient and profitable.",
+        cards: {
+          card1: {
+            card1Title: "Smart Automation",
+            card1Description:
+              "Automate your sales and business management on WhatsApp with AI, saving time and resources.",
+          },
+          card2: {
+            card2Title: "Automatic Responses",
+            card2Description:
+              "Answer inquiries and manage orders automatically, improving customer experience.",
+          },
+          card3: {
+            card3Title: "Data Analytics",
+            card3Description:
+              "Get valuable insights into your sales and customers to make better decisions.",
+          },
+          card4: {
+            card4Title: "Customer Management",
+            card4Description:
+              "Organize and segment your customers to provide personalized and effective service.",
+          },
+          card5: {
+            card5Title: "Smart Invoicing",
+            card5Description:
+              "Invoice in seconds, hassle-free. Comply with all local regulations and forget about wasted time.",
+          },
+        },
+      },
+      funcionalidad: {
+        titulo: "How does VendePe work?",
+        descripcion: "Follow these simple steps to automate your sales.",
+        badge: "Automated Sales & Management",
+        subtitle: "Boost Your Business with VendePe",
+        paragraph:
+          "VendePe, the AI-powered sales assistant, optimizes your sales and business management directly through WhatsApp. Simplifies electronic invoicing and business administration.",
+        paso1: {
+          titulo: "Connect your WhatsApp",
+          descripcion:
+            "Link your number and start receiving messages automatically.",
+        },
+        paso2: {
+          titulo: "Set up your assistant",
+          descripcion: "Customize responses, products, and sales flows.",
+        },
+        paso3: {
+          titulo: "Start selling!",
+          descripcion:
+            "Your assistant replies, sells, and invoices for you 24/7.",
+        },
+      },
+      pricing: {
+        titulo: "Simple plans, extraordinary results",
+        descripcion:
+          "Choose the plan that best fits your business needs and start transforming your operation",
+        plan1: {
+          titulo: "Starter",
+          subtitulo: "",
+          precio: "$99",
+          features: ["7-day setup", "2 WhatsApp numbers", "Up to 12 products"],
+          cta: "Start now",
+        },
+        plan2: {
+          titulo: "Professional",
+          subtitulo: "",
+          precio: "$149",
+          features: [
+            "7-day setup",
+            "3 WhatsApp numbers",
+            "Up to 17 products",
+            "Analytics module",
+          ],
+          badge: "Recommended",
+          cta: "Start now",
+        },
+        plan3: {
+          titulo: "Corporate",
+          subtitulo: "",
+          precio: "$249",
+          features: [
+            "7-day setup",
+            "5 WhatsApp numbers",
+            "Up to 28 products",
+            "Specialized support",
+            "Analytics module",
+          ],
+          cta: "Start now",
+        },
+      },
+      faq: {
+        titulo: "Frequently Asked Questions",
+        descripcion:
+          "Everything you need to know about VendePe and how it can help your business",
+        items: [
+          {
+            question: "Do I need technical knowledge to use VendePe?",
+            answer:
+              "No, you don’t need any technical knowledge. VendePe is designed to be easy to use and adapt to different types of businesses such as e-commerce, retail stores, professional services, restaurants, and agencies. If your customers communicate via WhatsApp for inquiries or purchases, VendePe helps you automate and scale those interactions effortlessly.",
+          },
+          {
+            question: "What sets VendePe apart from competitors?",
+            answer:
+              "VendePe combines artificial intelligence with business automation to offer you a comprehensive solution: attract customers, respond automatically, close sales, and issue invoices without manual intervention. It’s the only tool that unites smart sales, business management, and automatic invoicing in one platform to help you grow faster with less effort.",
+          },
+          {
+            question: "Can I customize automatic responses?",
+            answer:
+              "Yes, VendePe allows you to fully customize automatic responses according to your brand and business type. You can create specific conversation flows for different products or services, adapting to your customers’ needs.",
+          },
+          {
+            question: "What if I need help or technical support?",
+            answer:
+              "We offer technical support via chat, email, and phone call. Our team is available to help you with any questions or issues you may have. We also have a comprehensive knowledge base with tutorials and step-by-step guides.",
+          },
+        ],
+      },
+    },
+    testimonios: {
+      titulo: "What our clients say",
+      descripcion:
+        "Discover how VendePe has transformed our clients' businesses",
+      items: [
+        {
+          quote:
+            "What used to take me hours a day now happens automatically. With automatic responses, smart sales, and automatic invoicing, my business runs 24/7 without me always being online.",
+          author: "Bryan Villafuerte",
+          role: "Green Cycle",
+          avatar: "/images/logos/LogoTestimonioB.svg",
+        },
+        // Add more testimonials here if you have them
+      ],
+    },
+    footer: {
+      desc: "Smart automation for sales, business management, and invoicing. Your sales never sleep. Neither does our AI!",
+      quicklinks: "Quick Links",
+      links: {
+        inicio: "Home",
+        beneficios: "Benefits",
+        funcionalidades: "Features",
+        precios: "Pricing",
+        testimonios: "Testimonials",
+      },
+      contact: "Contact",
+      phone: "+51 999 115 320",
+      copyright: "© 2025 VendePe. All rights reserved.",
+      terminos: "Terms and Conditions",
+      privacidad: "Privacy Policy",
+    },
+  };
+
+  let lang: "es" | "en" = "es";
+
+  /**
+   * @param {string} newLang
+   */
+  function setLanguage(newLang: string) {
+    lang = newLang as "es" | "en";
+    // Títulos y subtítulos
+    const heroTitleMobile = document.getElementById("hero-title-mobile");
+    if (heroTitleMobile) {
+      heroTitleMobile.textContent = translations[lang].title;
+    }
+    const heroTitleDesktop = document.getElementById("hero-title-desktop");
+    if (heroTitleDesktop) {
+      heroTitleDesktop.textContent = translations[lang].title;
+    }
+    const heroSubtitleMobile = document.getElementById("hero-subtitle-mobile");
+    if (heroSubtitleMobile) {
+      heroSubtitleMobile.textContent = translations[lang].subtitle;
+    }
+    const heroSubtitleDesktop = document.getElementById(
+      "hero-subtitle-desktop"
+    );
+    if (heroSubtitleDesktop) {
+      heroSubtitleDesktop.textContent = translations[lang].subtitle;
+    }
+    // Botones
+    const heroDemoBtn = document.getElementById("hero-demo-btn");
+    if (heroDemoBtn && heroDemoBtn.childNodes[0]) {
+      heroDemoBtn.childNodes[0].textContent = translations[lang].demo + " ";
+    }
+    const heroPlansBtn = document.getElementById("hero-plans-btn");
+    if (heroPlansBtn) {
+      heroPlansBtn.textContent = translations[lang].plans;
+    }
+    // Beneficios
+    const benefit1Title = document.getElementById("hero-benefit-1-title");
+    if (benefit1Title) {
+      benefit1Title.textContent = translations[lang].benefit1.title;
+    }
+    const benefit1Desc = document.getElementById("hero-benefit-1-desc");
+    if (benefit1Desc) {
+      benefit1Desc.textContent = translations[lang].benefit1.desc;
+    }
+    const benefit2Title = document.getElementById("hero-benefit-2-title");
+    if (benefit2Title) {
+      benefit2Title.textContent = translations[lang].benefit2.title;
+    }
+    const benefit2Desc = document.getElementById("hero-benefit-2-desc");
+    if (benefit2Desc) {
+      benefit2Desc.textContent = translations[lang].benefit2.desc;
+    }
+    const benefit3Title = document.getElementById("hero-benefit-3-title");
+    if (benefit3Title) {
+      benefit3Title.textContent = translations[lang].benefit3.title;
+    }
+    const benefit3Desc = document.getElementById("hero-benefit-3-desc");
+    if (benefit3Desc) {
+      benefit3Desc.textContent = translations[lang].benefit3.desc;
+    }
+    // Botón idioma
+    const langSwitcher = document.getElementById("lang-switcher");
+    if (langSwitcher) {
+      langSwitcher.textContent = translations[lang].langBtn;
+    }
+    const navLinks = document.querySelectorAll("nav.custom-md\\:flex a");
+    navLinks.forEach((a, i) => {
+      a.textContent = translations[lang].nav[i];
+    });
+    const demoBtn = document.querySelector(".demo-btn");
+    if (demoBtn) demoBtn.textContent = translations[lang].demo;
+    const langBtn = document.getElementById("lang-switcher-navbar");
+    if (langBtn) langBtn.textContent = translations[lang].langBtn;
+
+    updatePhoneSection();
+    updateClientSection();
+    updateBenefitsSection();
+    updateFuncSection();
+    updatePreciosSection(lang);
+    updatePreciosCtas(lang);
+    updateFaqSection();
+    updateTestimoniosSection();
+    window.dispatchEvent(new Event("testimoniosDataChanged"));
+    updateFooterSection();
+  }
+
+  /**
+   * Función específica para actualizar la sección del teléfono
+   */
+  function updatePhoneSection() {
+    // Use 'telefono' for Spanish, 'phone' for English
+    const phoneData =
+      lang === "es" ? translations[lang].telefono : translations[lang].phone;
+
+    if (!phoneData) return;
+
+    // Barra superior del teléfono / Top bar
+    const topBar = document.getElementById("phone-top-bar");
+    if (topBar) {
+      if (lang === "es" && "barrasup" in phoneData) {
+        topBar.textContent = phoneData.barrasup;
+      } else if (lang === "en" && "topBar" in phoneData) {
+        topBar.textContent = phoneData.topBar;
+      }
+    }
+
+    // Estado (En línea/Online)
+    const status = document.getElementById("phone-status");
+    if (status) {
+      if ("estado" in phoneData) {
+        status.textContent = phoneData.estado;
+      } else if ("status" in phoneData) {
+        status.textContent = phoneData.status;
+      }
+    }
+
+    // Conversación del chat / Chat conversation
+    let conversation: any = null;
+    if (lang === "es" && (phoneData as any).conversacion) {
+      conversation = (phoneData as any).conversacion;
+    } else if (lang === "en" && (phoneData as any).conversation) {
+      conversation = (phoneData as any).conversation;
+    }
+
+    if (conversation) {
+      // Chat 1 - Mensaje del usuario
+      const chat1 = document.getElementById("phone-chat-1");
+      if (chat1 && conversation.chat1) {
+        chat1.textContent = conversation.chat1;
+      }
+
+      // Chat 2 - Respuesta del asistente con productos
+      if (conversation.chat2) {
+        const chat2Greeting = document.getElementById("phone-chat-2-greeting");
+        if (
+          chat2Greeting &&
+          (conversation.chat2.saludo || conversation.chat2.greeting)
+        ) {
+          chat2Greeting.textContent =
+            conversation.chat2.saludo || conversation.chat2.greeting;
+        }
+
+        const chat2Product1 = document.getElementById("phone-chat-2-product1");
+        if (
+          chat2Product1 &&
+          (conversation.chat2.producto1 || conversation.chat2.product1)
+        ) {
+          chat2Product1.textContent =
+            conversation.chat2.producto1 || conversation.chat2.product1;
+        }
+
+        const chat2Product2 = document.getElementById("phone-chat-2-product2");
+        if (
+          chat2Product2 &&
+          (conversation.chat2.producto2 || conversation.chat2.product2)
+        ) {
+          chat2Product2.textContent =
+            conversation.chat2.producto2 || conversation.chat2.product2;
+        }
+
+        const chat2Product3 = document.getElementById("phone-chat-2-product3");
+        if (
+          chat2Product3 &&
+          (conversation.chat2.producto3 || conversation.chat2.product3)
+        ) {
+          chat2Product3.textContent =
+            conversation.chat2.producto3 || conversation.chat2.product3;
+        }
+      }
+
+      // Chat 3 - Segundo mensaje del usuario
+      const chat3 = document.getElementById("phone-chat-3");
+      if (chat3 && conversation.chat3) {
+        chat3.textContent = conversation.chat3;
+      }
+
+      // Chat 4 - Segunda respuesta del asistente
+      const chat4 = document.getElementById("phone-chat-4");
+      if (chat4 && conversation.chat4) {
+        chat4.textContent = conversation.chat4;
+      }
+    }
+
+    const whatsappMessages = {
+      es: "Hola me gustaría tener mi propio asistente de venta inteligente",
+      en: "Hi, I would like to have my own smart sales assistant",
+    };
+  }
+
+  function updateClientSection() {
+    const clientData =
+      lang === "es"
+        ? translations[lang].clientestitulo
+        : translations[lang].clientestitle;
+
+    if (!clientData) return;
+
+    const clientTitle = document.getElementById("clientestitle");
+    if (clientTitle) {
+      clientTitle.textContent = clientData;
+    }
+  }
+
+  function updateBenefitsSection() {
+    // Use 'beneficios' for Spanish, 'benefits' for English
+    const benefitsData =
+      lang === "es"
+        ? translations[lang].beneficios
+        : translations[lang].benefits;
+
+    // Título y descripción principal
+    const benefitTitle = document.getElementById("benefit-title");
+    if (benefitTitle)
+      benefitTitle.textContent =
+        lang === "es" && "beneficiotitulo" in benefitsData
+          ? (benefitsData as any).beneficiotitulo
+          : (benefitsData as any).benefitTitle;
+
+    const benefitDescription = document.getElementById("benefit-description");
+    if (benefitDescription)
+      benefitDescription.textContent =
+        lang === "es"
+          ? (benefitsData as any)?.beneficiodescripcion
+          : (benefitsData as any)?.benefitDescription;
+
+    // Tarjetas de beneficios
+    for (let i = 1; i <= 5; i++) {
+      let card;
+      if (lang === "es") {
+        card = (benefitsData as any).cartas?.[`carta${i}`];
+      } else {
+        card = (benefitsData as any).cards?.[`card${i}`];
+      }
+      const cardTitle = document.getElementById(`benefit-card${i}-title`);
+      const cardDesc = document.getElementById(`benefit-card${i}-desc`);
+      if (cardTitle)
+        cardTitle.textContent =
+          lang === "es" ? card?.[`carta${i}titulo`] : card?.[`card${i}Title`];
+      if (cardDesc)
+        cardDesc.textContent =
+          lang === "es"
+            ? card?.[`carta${i}descripcion`]
+            : card?.[`card${i}Description`];
+    }
+  }
+
+  function updateFuncSection() {
+    type Paso = { titulo: string; descripcion: string };
+    type FuncData = {
+      titulo: string;
+      descripcion: string;
+      badge: string;
+      subtitulo: string;
+      parrafo: string;
+      paso1: Paso;
+      paso2: Paso;
+      paso3: Paso;
+    };
+
+    const funcData: FuncData =
+      lang === "es"
+        ? translations[lang].funcionalidad
+        : {
+            ...translations[lang].funcionalidad,
+            subtitulo: translations[lang].funcionalidad.subtitle,
+            parrafo: translations[lang].funcionalidad.paragraph,
+          };
+
+    if (!funcData) return;
+
+    // Título y descripción principal
+    const funcTitle = document.getElementById("func-title");
+    if (funcTitle) funcTitle.textContent = funcData.titulo;
+
+    const funcDesc = document.getElementById("func-desc");
+    if (funcDesc) funcDesc.textContent = funcData.descripcion;
+
+    const funcBadge = document.getElementById("func-badge");
+    if (funcBadge) funcBadge.textContent = funcData.badge;
+
+    const funcsubtitle = document.getElementById("func-subtitle");
+    if (funcsubtitle) funcsubtitle.textContent = funcData.subtitulo;
+
+    const funcparagraph = document.getElementById("func-paragraph");
+    if (funcparagraph) funcparagraph.textContent = funcData.parrafo;
+
+    // Pasos (cards)
+    const pasos: Paso[] = [funcData.paso1, funcData.paso2, funcData.paso3];
+    for (let i = 1; i <= 3; i++) {
+      const paso = pasos[i - 1];
+      const cardTitle = document.getElementById(`func-card${i}-title`);
+      const cardDesc = document.getElementById(`func-card${i}-desc`);
+      if (cardTitle) cardTitle.textContent = paso.titulo;
+      if (cardDesc) cardDesc.textContent = paso.descripcion;
+    }
+  }
+
+  // Función para traducir la sección de precios
+  function updatePreciosSection(lang: string) {
+    const preciosData =
+      lang === "es" ? translations["es"].precios : translations["en"].pricing;
+
+    if (!preciosData) return;
+
+    // Título y descripción principal
+    const preciosTitle = document.getElementById("precios-title");
+    if (preciosTitle) preciosTitle.textContent = preciosData.titulo;
+
+    const preciosDesc = document.getElementById("precios-desc");
+    if (preciosDesc) preciosDesc.textContent = preciosData.descripcion;
+
+    // Planes
+    for (let i = 1; i <= 3; i++) {
+      type PlanType = {
+        titulo: string;
+        subtitulo: string;
+        precio: string;
+        features: string[];
+        cta: string;
+        badge?: string;
+      };
+      const plan = preciosData[
+        `plan${i}` as keyof typeof preciosData
+      ] as PlanType;
+      if (!plan) continue;
+
+      const planTitle = document.getElementById(`plan${i}-title`);
+      if (planTitle) planTitle.textContent = plan.titulo;
+
+      const planSubtitle = document.getElementById(`plan${i}-subtitle`);
+      if (planSubtitle) planSubtitle.textContent = plan.subtitulo || "";
+
+      const planPrice = document.getElementById(`plan${i}-price`);
+      if (planPrice) planPrice.textContent = plan.precio;
+
+      const planBadge = document.getElementById(`plan${i}-badge`);
+      if (planBadge) planBadge.textContent = plan.badge || "";
+
+      // Features
+      if (plan.features && Array.isArray(plan.features)) {
+        plan.features.forEach((feature, idx) => {
+          const featureId = `plan${i}-feature${idx + 1}`;
+          const featureEl = document.getElementById(featureId);
+          if (featureEl) featureEl.textContent = feature;
+        });
+      }
+
+      // CTA
+      const planCta = document.getElementById(`plan${i}-cta`);
+      if (planCta)
+        planCta.textContent =
+          plan.cta || (lang === "es" ? "Empezar ahora" : "Start now");
+    }
+  }
+
+  const whatsappMessages = {
+    es: "Hola me gustaría tener mi propio asistente de venta inteligente",
+    en: "Hi, I would like to have my own smart sales assistant",
+  };
+
+  // Función para actualizar los href de los CTAs de precios
+  function updatePreciosCtas(lang: "es" | "en") {
+    for (let i = 1; i <= 3; i++) {
+      const cta = document.getElementById(`plan${i}-cta`);
+      if (cta && cta instanceof HTMLAnchorElement) {
+        cta.href = `https://wa.me/51999115320?text=${encodeURIComponent(whatsappMessages[lang])}`;
+      }
+    }
+  }
+
+  function updateFaqSection() {
+    type FaqItem = { question: string; answer: string };
+    type FaqData = { titulo: string; descripcion: string; items: FaqItem[] };
+    const faqData: FaqData =
+      lang === "es" ? translations["es"].faq : translations["en"].faq;
+
+    if (!faqData) return;
+
+    // Título y descripción
+    const faqTitle = document.getElementById("faq-title");
+    if (faqTitle) faqTitle.textContent = faqData.titulo;
+
+    const faqDesc = document.getElementById("faq-desc");
+    if (faqDesc) faqDesc.textContent = faqData.descripcion;
+
+    // Preguntas y respuestas
+    faqData.items.forEach((item: FaqItem, idx: number) => {
+      const q = document.getElementById(`faq-question-${idx}`);
+      const a = document.getElementById(`faq-answer-${idx}`);
+      if (q) q.textContent = item.question;
+      if (a) a.textContent = item.answer;
+    });
+  }
+
+  function updateTestimoniosSection() {
+    type TestimonioItem = {
+      quote: string;
+      author: string;
+      role: string;
+      avatar: string;
+    };
+    type TestData = {
+      titulo: string;
+      descripcion: string;
+      items: TestimonioItem[];
+    };
+    const testData: TestData =
+      lang === "es" ? translations["es"].testimonios : translations.testimonios;
+
+    if (!testData) return;
+
+    // Título y descripción
+    const testTitle = document.getElementById("testimonios-title");
+    if (testTitle) testTitle.textContent = testData.titulo;
+
+    const testDesc = document.getElementById("testimonios-desc");
+    if (testDesc) testDesc.textContent = testData.descripcion;
+
+    // Si usas React para los testimonios, también debes exponer los datos traducidos globalmente:
+    window.testimoniosData = testData.items;
+  }
+
+  function updateFooterSection() {
+    // Use translations[lang].footer for ES, translations.footer for EN
+    const data =
+      lang === "es" ? translations["es"].footer : translations.footer;
+    if (!data) return;
+    const set = (id: string, value: string) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+    set("footer-desc", data.desc);
+    set("footer-quicklinks-title", data.quicklinks);
+    set("footer-link-inicio", data.links.inicio);
+    set("footer-link-beneficios", data.links.beneficios);
+    set("footer-link-funcionalidades", data.links.funcionalidades);
+    set("footer-link-precios", data.links.precios);
+    set("footer-link-testimonios", data.links.testimonios);
+    set("footer-contact-title", data.contact);
+    set("footer-phone", data.phone);
+    set("footer-link-terminos", data.terminos);
+    set("footer-link-privacidad", data.privacidad);
+    set("footer-copyright", data.copyright);
+  }
+  // Si quieres cambiar textos en otras secciones, llama aquí a sus funciones de traducción
+  // Por ejemplo, si tienes la función setLanguage del Hero:
+  if (window.setLanguage) window.setLanguage(lang);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const langSwitcher = document.getElementById("lang-switcher-navbar");
+    if (langSwitcher) {
+      langSwitcher.addEventListener("click", () => {
+        setLanguage(lang === "es" ? "en" : "es");
+        // Llama también a la función global del Hero
+        if (window.setLanguage) window.setLanguage(lang);
+      });
+    }
+    setLanguage(lang); // Inicializa
+    updateBenefitsSection();
+    updateFuncSection();
+    updatePreciosSection(lang);
+    updatePreciosCtas(lang);
+    updateFaqSection();
+    updateTestimoniosSection();
+    window.dispatchEvent(new Event("testimoniosDataChanged"));
+    updateFooterSection();
+  });
+
+  // Add this declaration before using window.setLanguage or window.setNavBarLanguage
+  declare global {
+    interface Window {
+      setLanguage: (lang: string) => void;
+      setNavBarLanguage: (lang: string) => void;
+      testimoniosData?: any;
+    }
+  }
+
+  window.setLanguage = setLanguage;
+  window.setNavBarLanguage = setLanguage;
 </script>

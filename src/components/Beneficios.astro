@@ -4,58 +4,21 @@ import IconMessage from "./icons/IconMessage.astro";
 import IconChart from "./icons/IconChart.astro";
 import IconUsers from "./icons/IconUsers.astro";
 import IconDiamond from "./icons/IconDiamond.astro"; // Puedes crear este icono para "Facturación Inteligente"
-
-const benefitsData = [
-  {
-    icon: IconRocket,
-    title: "Automatización inteligente",
-    description:
-      "Automatiza tus ventas y gestión comercial en WhatsApp con IA, ahorrando tiempo y recursos.",
-    color: "bg-blue-50 ",
-    iconBg: "bg-blue-100 ",
-  },
-  {
-    icon: IconMessage,
-    title: "Respuestas automáticas",
-    description:
-      "Responde consultas y gestiona pedidos automáticamente, mejorando la experiencia del cliente.",
-    color: "bg-emerald-50 ",
-    iconBg: "bg-emerald-100 ",
-  },
-  {
-    icon: IconChart,
-    title: "Análisis de datos",
-    description:
-      "Obtén insights valiosos sobre tus ventas y clientes para tomar mejores decisiones.",
-    color: "bg-purple-50 ",
-    iconBg: "bg-purple-100 ",
-  },
-  {
-    icon: IconUsers,
-    title: "Gestión de clientes",
-    description:
-      "Organiza y segmenta tus clientes para ofrecer una atención personalizada y efectiva.",
-    color: "bg-amber-50 ",
-    iconBg: "bg-amber-100 ",
-  },
-  {
-    icon: IconDiamond,
-    title: "Facturación Inteligente",
-    description:
-      "Factura en segundos, sin dolores de cabeza. Cumple con todas las normas locales y olvídate de la pérdida de tiempo.",
-    color: "bg-blue-50 ",
-    iconBg: "bg-blue-100 ",
-  },
-];
 ---
 
 <section id="beneficios" class="py-24 px-4 bg-white">
   <div class="container mx-auto max-w-8xl">
     <div class="text-center mb-16 animate-on-scroll">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-[#3B4E73]">
+      <h2
+        id="benefit-title"
+        class="text-3xl md:text-5xl font-bold mb-4 text-[#3B4E73]"
+      >
         Beneficios que transforman tu negocio
       </h2>
-      <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+      <p
+        id="benefit-description"
+        class="text-gray-600 text-lg max-w-3xl mx-auto"
+      >
         VendePe no solo automatiza tus ventas, sino que transforma completamente
         tu operación para hacerla más eficiente y rentable.
       </p>
@@ -64,29 +27,91 @@ const benefitsData = [
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 benefits-grid-container"
     >
-      {
-        benefitsData.map((benefit, index) => (
-          <div
-            class:list={[
-              benefit.color,
-              "rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group",
-              "benefit-card",
-            ]}
-            data-stagger-index={index}
-          >
-            <div
-              class:list={[
-                benefit.iconBg,
-                "rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300",
-              ]}
-            >
-              <benefit.icon />
-            </div>
-            <h3 class="text-xl font-bold text-center mb-3">{benefit.title}</h3>
-            <p class="text-gray-600 text-center">{benefit.description}</p>
-          </div>
-        ))
-      }
+      <div
+        class="bg-blue-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group benefit-card"
+        data-stagger-index="0"
+      >
+        <div
+          class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
+        >
+          <IconRocket />
+        </div>
+        <h3 id="benefit-card1-title" class="text-xl font-bold text-center mb-3">
+          Automatización inteligente
+        </h3>
+        <p id="benefit-card1-desc" class="text-gray-600 text-center">
+          Automatiza tus ventas y gestión comercial en WhatsApp con IA,
+          ahorrando tiempo y recursos.
+        </p>
+      </div>
+      <div
+        class="bg-emerald-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group benefit-card"
+        data-stagger-index="1"
+      >
+        <div
+          class="bg-emerald-100 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
+        >
+          <IconMessage />
+        </div>
+        <h3 id="benefit-card2-title" class="text-xl font-bold text-center mb-3">
+          Respuestas automáticas
+        </h3>
+        <p id="benefit-card2-desc" class="text-gray-600 text-center">
+          Responde consultas y gestiona pedidos automáticamente, mejorando la
+          experiencia del cliente.
+        </p>
+      </div>
+      <div
+        class="bg-purple-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group benefit-card"
+        data-stagger-index="2"
+      >
+        <div
+          class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
+        >
+          <IconChart />
+        </div>
+        <h3 id="benefit-card3-title" class="text-xl font-bold text-center mb-3">
+          Análisis de datos
+        </h3>
+        <p id="benefit-card3-desc" class="text-gray-600 text-center">
+          Obtén insights valiosos sobre tus ventas y clientes para tomar mejores
+          decisiones.
+        </p>
+      </div>
+      <div
+        class="bg-amber-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group benefit-card"
+        data-stagger-index="3"
+      >
+        <div
+          class="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
+        >
+          <IconUsers />
+        </div>
+        <h3 id="benefit-card4-title" class="text-xl font-bold text-center mb-3">
+          Gestión de clientes
+        </h3>
+        <p id="benefit-card4-desc" class="text-gray-600 text-center">
+          Organiza y segmenta tus clientes para ofrecer una atención
+          personalizada y efectiva.
+        </p>
+      </div>
+      <div
+        class="bg-blue-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group benefit-card"
+        data-stagger-index="4"
+      >
+        <div
+          class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
+        >
+          <IconDiamond />
+        </div>
+        <h3 id="benefit-card5-title" class="text-xl font-bold text-center mb-3">
+          Facturación Inteligente
+        </h3>
+        <p id="benefit-card5-desc" class="text-gray-600 text-center">
+          Factura en segundos, sin dolores de cabeza. Cumple con todas las
+          normas locales y olvídate de la pérdida de tiempo.
+        </p>
+      </div>
     </div>
   </div>
 </section>

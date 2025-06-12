@@ -3,18 +3,21 @@ import { Image } from "astro:assets";
 ---
 
 <section
-  class="pt-32 pb-20 px-4 bg-gradient-to-b  from-emerald-900 to-emerald-950 text-white overflow-hidden"
+  id="inicio"
+  class="pt-32 pb-20 px-4 bg-gradient-to-b from-emerald-900 to-emerald-950 text-white overflow-hidden"
 >
   <div class="container mx-auto max-w-6xl">
+    <div class="flex justify-end mb-4"></div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
       <!-- Título y subtítulo SOLO visible en móviles/tablets -->
       <div class="block lg:hidden mb-8 text-center animate-fade-in">
         <h1
+          id="hero-title-mobile"
           class="text-4xl md:text-6xl font-bold mb-4 font-poppins leading-tight"
         >
           Automatiza tus ventas sin perder el trato humano
         </h1>
-        <p class="text-lg md:text-xl text-white/80">
+        <p id="hero-subtitle-mobile" class="text-lg md:text-xl text-white/80">
           Automatiza tus ventas con inteligencia artificial que responde,
           convence y factura 24/7. Ideal para empresas, pymes y e-commerce.
         </p>
@@ -55,13 +58,20 @@ import { Image } from "astro:assets";
               <div
                 class="w-10 h-10 bg-gray-600 rounded-full mr-3 flex items-center justify-center"
                 aria-hidden="true"
-              > <img class="w-8 " src="/images/logos/LogotipoBlanco.svg" alt="">
+              >
+                <img
+                  class="w-8"
+                  src="/images/logos/LogotipoBlanco.svg"
+                  alt=""
+                />
               </div>
               <div>
-                <div class="text-white font-medium text-sm">
+                <div id="phone-top-bar" class="text-white font-medium text-sm">
                   ModaExpress Asistente
                 </div>
-                <div class="text-white/70 text-xs">En línea</div>
+                <div id="phone-status" class="text-white/70 text-xs">
+                  En línea
+                </div>
               </div>
             </div>
 
@@ -73,7 +83,7 @@ import { Image } from "astro:assets";
                 <div
                   class="bg-white self-start rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
-                  <p class="text-sm text-black">
+                  <p id="phone-chat-1" class="text-sm text-black">
                     Hola, ¿qué polos tienen disponibles? 👕
                   </p>
                   <p class="text-[10px] text-gray-500 text-right">10:30</p>
@@ -83,7 +93,12 @@ import { Image } from "astro:assets";
                 <div
                   class="bg-[#dcf8c6] self-end rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
-                  <p class="text-sm text-black font-bold">
+                  <p
+                    id="phone-chat-2-greeting"
+                    class="text-sm
+                    text-black
+                    font-bold"
+                  >
                     ¡Hola! Aquí te muestro algunos modelos:
                   </p>
                   <div class="space-y-2">
@@ -95,7 +110,11 @@ import { Image } from "astro:assets";
                         class="w-16 h-16 rounded-md"
                       />
                       <div>
-                        <p class="text-sm text-black">
+                        <p
+                          id="phone-chat-2-product1"
+                          class="text-sm
+                          text-black"
+                        >
                           🔹 <strong>Polo azul clásico – S/45</strong>
                         </p>
                       </div>
@@ -109,7 +128,10 @@ import { Image } from "astro:assets";
                         class="w-16 h-16 rounded-md"
                       />
                       <div>
-                        <p class="text-sm text-black">
+                        <p
+                          id="phone-chat-2-product2"
+                          class="text-sm text-black"
+                        >
                           🔹 <strong>Polo Negro minimal – S/50</strong>
                         </p>
                       </div>
@@ -123,7 +145,10 @@ import { Image } from "astro:assets";
                         class="w-16 h-16 rounded-md"
                       />
                       <div>
-                        <p class="text-sm text-black">
+                        <p
+                          id="phone-chat-2-product3"
+                          class="text-sm text-black"
+                        >
                           🔹 <strong>Polo Rojo – S/50</strong>
                         </p>
                       </div>
@@ -136,7 +161,7 @@ import { Image } from "astro:assets";
                 <div
                   class="bg-white self-start rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
-                  <p class="text-sm text-black">
+                  <p id="phone-chat-3" class="text-sm text-black">
                     El negro está bonito. ¿Tienen talla M?
                   </p>
                   <p class="text-[10px] text-gray-500 text-right">10:32</p>
@@ -146,7 +171,7 @@ import { Image } from "astro:assets";
                 <div
                   class="bg-[#dcf8c6] self-end rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
-                  <p class="text-sm text-black">
+                  <p id="phone-chat-4" class="text-sm text-black">
                     ¡Sí! Tenemos en M. ¿Te gustaría pedirlo ahora? 🛍️
                   </p>
                   <p class="text-[10px] text-gray-500 text-right">10:33</p>
@@ -187,12 +212,14 @@ import { Image } from "astro:assets";
       <!-- Contenido del CTA -->
       <div class="text-center lg:text-left animate-fade-in">
         <h1
+          id="hero-title-desktop"
           class="hidden lg:block text-4xl md:text-6xl font-bold mb-6 font-poppins leading-tight"
         >
           Automatiza tus ventas sin perder el trato humano
         </h1>
         <!-- Subtítulo SOLO visible en escritorio -->
         <p
+          id="hero-subtitle-desktop"
           class="hidden lg:block text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto lg:mx-0"
         >
           Automatiza tus ventas con inteligencia artificial que responde,
@@ -202,6 +229,7 @@ import { Image } from "astro:assets";
           class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-16"
         >
           <a
+            id="hero-demo-btn"
             href="https://wa.me/51999115320?text=Hola%20me%20gustaría%20tener%20mi%20propio%20asistente%20de%20venta%20inteligente"
             target="_blank"
             rel="noopener noreferrer"
@@ -225,6 +253,7 @@ import { Image } from "astro:assets";
             </svg>
           </a>
           <a
+            id="hero-plans-btn"
             href="#precio"
             class="border border-white/30 bg-white/10 hover:bg-white/20 text-white text-lg px-8 py-4 rounded-md font-medium inline-flex items-center justify-center"
           >
@@ -256,8 +285,10 @@ import { Image } from "astro:assets";
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
             </div>
-            <h3 class="font-bold text-xl mb-2">Ahorra tiempo</h3>
-            <p class="text-white/70">
+            <h3 id="hero-benefit-1-title" class="font-bold text-xl mb-2">
+              Ahorra tiempo
+            </h3>
+            <p id="hero-benefit-1-desc" class="text-white/70">
               Automatiza respuestas y procesos de venta 24/7
             </p>
           </div>
@@ -285,8 +316,10 @@ import { Image } from "astro:assets";
                 <path d="M6 20v-6"></path>
               </svg>
             </div>
-            <h3 class="font-bold text-xl mb-2">Aumenta ventas</h3>
-            <p class="text-white/70">
+            <h3 id="hero-benefit-2-title" class="font-bold text-xl mb-2">
+              Aumenta ventas
+            </h3>
+            <p id="hero-benefit-2-desc" class="text-white/70">
               Mejora la conversión con respuestas inmediatas
             </p>
           </div>
@@ -314,8 +347,10 @@ import { Image } from "astro:assets";
                 ></path>
               </svg>
             </div>
-            <h3 class="font-bold text-xl mb-2">Reduce costos</h3>
-            <p class="text-white/70">
+            <h3 id="hero-benefit-3-title" class="font-bold text-xl mb-2">
+              Reduce costos
+            </h3>
+            <p id="hero-benefit-3-desc" class="text-white/70">
               Optimiza recursos y personal de atención
             </p>
           </div>

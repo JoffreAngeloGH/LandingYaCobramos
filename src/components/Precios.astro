@@ -5,10 +5,13 @@ import { Image } from "astro:assets";
 <section id="precio" class="py-24 px-4 bg-white">
   <div class="container mx-auto max-w-5xl">
     <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-[#3B4E73]">
+      <h2
+        id="precios-title"
+        class="text-3xl md:text-5xl font-bold mb-4 text-[#3B4E73]"
+      >
         Planes simples, resultados extraordinarios
       </h2>
-      <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+      <p id="precios-desc" class="text-gray-600 text-lg max-w-3xl mx-auto">
         Elige el plan que mejor se adapte a las necesidades de tu negocio y
         comienza a transformar tu operación
       </p>
@@ -18,41 +21,40 @@ import { Image } from "astro:assets";
       {
         [
           {
-            title: "Emprende",
-            subtitle: "",
-            price: "$99",
-            features: [
-              "Implementación 7 días",
-              "2 número de whatsapp",
-              "Hasta 12 productos",
-            ],
+            titleId: "plan1-title",
+            subtitleId: "plan1-subtitle",
+            priceId: "plan1-price",
+            badgeId: "plan1-badge",
+            featuresIds: ["plan1-feature1", "plan1-feature2", "plan1-feature3"],
             highlighted: false,
             delay: 0,
           },
           {
-            title: "Profesional",
-            subtitle: "",
-            price: "$149",
-            features: [
-              "Implementación 7 días",
-              "3 número de whatsapp",
-              "Hasta 17 productos",
-              "Módulo de análisis",
+            titleId: "plan2-title",
+            subtitleId: "plan2-subtitle",
+            priceId: "plan2-price",
+            badgeId: "plan2-badge",
+            featuresIds: [
+              "plan2-feature1",
+              "plan2-feature2",
+              "plan2-feature3",
+              "plan2-feature4",
             ],
             highlighted: true,
             delay: 100,
-            badge: "Recomendado",
+            badge: true,
           },
           {
-            title: "Corporativo",
-            subtitle: "",
-            price: "$249",
-            features: [
-              "Implementación 7 días",
-              "5 número de whatsapp",
-              "Hasta 28 productos",
-              "Soporte especializado",
-              "Módulo de análisis",
+            titleId: "plan3-title",
+            subtitleId: "plan3-subtitle",
+            priceId: "plan3-price",
+            badgeId: "plan3-badge",
+            featuresIds: [
+              "plan3-feature1",
+              "plan3-feature2",
+              "plan3-feature3",
+              "plan3-feature4",
+              "plan3-feature5",
             ],
             highlighted: false,
             delay: 200,
@@ -66,23 +68,38 @@ import { Image } from "astro:assets";
             }`}
             data-delay={plan.delay}
           >
-            {plan.highlighted && plan.badge && (
-              <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-                {plan.badge}
+            {plan.highlighted && (
+              <div
+                id={plan.badgeId}
+                class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg"
+              >
+                Recomendado
               </div>
             )}
             <div class={`p-8 ${plan.highlighted ? "bg-blue-50 h-full " : ""}`}>
-              <h3 class="text-2xl font-bold mb-1 ">{plan.title}</h3>
-              <p class="text-gray-500  text-sm mb-6">{plan.subtitle}</p>
+              <h3 id={plan.titleId} class="text-2xl font-bold mb-1 ">
+                {index === 0
+                  ? "Emprende"
+                  : index === 1
+                    ? "Profesional"
+                    : "Corporativo"}
+              </h3>
+              <p id={plan.subtitleId} class="text-gray-500  text-sm mb-6" />
               <div class="mb-6">
-                <span class="text-4xl font-bold ">{plan.price}</span>
+                <span id={plan.priceId} class="text-4xl font-bold ">
+                  {index === 0 ? "$99" : index === 1 ? "$149" : "$249"}
+                </span>
                 <span class="text-gray-500 ">/mes</span>
               </div>
               <div class="space-y-4 mb-8">
-                {plan.features.map((feature, i) => (
+                {plan.featuresIds.map((fid, i) => (
                   <div class="flex items-center text-gray-700 ">
                     <div
-                      class={`flex-shrink-0 mr-3 ${plan.highlighted ? "text-blue-500 " : "text-emerald-500 "}`}
+                      class={`flex-shrink-0 mr-3 ${
+                        plan.highlighted
+                          ? "text-blue-500 "
+                          : "text-emerald-500 "
+                      }`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -98,11 +115,14 @@ import { Image } from "astro:assets";
                         <path d="M20 6 9 17l-5-5" />
                       </svg>
                     </div>
-                    <span class="font-medium">{feature}</span>
+                    <span id={fid} class="font-medium">
+                      {/* Texto de la feature */}
+                    </span>
                   </div>
                 ))}
               </div>
               <a
+                id={`plan${index + 1}-cta`}
                 href="https://wa.me/51999115320?text=Hola%20me%20gustaría%20tener%20mi%20propio%20asistente%20de%20venta%20inteligente"
                 target="_blank"
                 rel="noopener noreferrer"

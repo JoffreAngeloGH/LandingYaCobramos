@@ -5,10 +5,13 @@ import { Image } from "astro:assets";
 <section class="py-24 px-4 bg-gray-900">
   <div class="container mx-auto max-w-3xl">
     <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white">
+      <h2
+        id="faq-title"
+        class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white"
+      >
         Preguntas Frecuentes
       </h2>
-      <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+      <p id="faq-desc" class="text-gray-400 text-lg max-w-3xl mx-auto">
         Todo lo que necesitas saber sobre VendePe y cómo puede ayudar en tu
         negocio
       </p>
@@ -17,36 +20,14 @@ import { Image } from "astro:assets";
     <div class="reveal" data-delay="100">
       <div class="space-y-4">
         {
-          [
-            {
-              question: "¿Necesito conocimientos técnicos para usar VendePe?",
-              answer:
-                "No, no necesitas tener conocimientos técnicos. VendePe está diseñado para ser fácil de usar y adaptarse a distintos tipos de negocios como e-commerce, tiendas minoristas, servicios profesionales, restaurantes y agencias. Si tus clientes se comunican por WhatsApp para hacer consultas o realizar compras, VendePe te ayuda a automatizar y escalar esas interacciones sin complicaciones.",
-            },
-            {
-              question:
-                "¿Que diferencia a VendePE en relación a los competidores?",
-              answer:
-                "VendePe combina inteligencia artificial con automatización comercial para ofrecerte una solución integral: atrae clientes, responde automáticamente, cierra ventas y emite facturas sin intervención manual. Es la única herramienta que une ventas inteligentes, gestión comercial y facturación automática en una sola plataforma para ayudarte a crecer más rápido y con menos esfuerzo.",
-            },
-            {
-              question: "¿Puedo personalizar las respuestas automáticas?",
-              answer:
-                "Sí, VendePe te permite personalizar completamente las respuestas automáticas según tu marca y tipo de negocio. Puedes crear flujos de conversación específicos para diferentes productos o servicios, adaptándose a las necesidades de tus clientes.",
-            },
-            {
-              question: "¿Qué pasa si necesito ayuda o soporte técnico?",
-              answer:
-                "Ofrecemos soporte técnico por chat, correo electrónico y llamada telefónica. Nuestro equipo está disponible para ayudarte con cualquier duda o problema que puedas tener. Además, contamos con una base de conocimientos completa con tutoriales y guías paso a paso.",
-            },
-          ].map((faq, index) => (
+          [0, 1, 2, 3].map((idx) => (
             <div class="bg-gray-900 rounded-xl shadow-sm border border-gray-800 overflow-hidden accordion-item">
               <button
                 class="w-full px-6 py-4 text-left font-medium text-white flex justify-between items-center"
                 aria-expanded="false"
-                aria-controls={`accordion-content-${index}`}
+                aria-controls={`accordion-content-${idx}`}
               >
-                <span>{faq.question}</span>
+                <span id={`faq-question-${idx}`} />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -63,10 +44,10 @@ import { Image } from "astro:assets";
                 </svg>
               </button>
               <div
-                id={`accordion-content-${index}`}
+                id={`accordion-content-${idx}`}
                 class="px-6 pb-4 pt-0 text-gray-400 accordion-content "
               >
-                <p class="pt-2 text-white/90">{faq.answer}</p>
+                <p id={`faq-answer-${idx}`} class="pt-2 text-white/90" />
               </div>
             </div>
           ))

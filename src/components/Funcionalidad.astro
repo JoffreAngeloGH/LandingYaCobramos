@@ -1,35 +1,11 @@
 ---
 // src/components/Funcionalidad.astro
 
-// Reemplaza estos con tus SVGs reales de Lucide o componentes de icono Astro
 const TabletIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>`;
 const BarChart3Icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>`;
 const ReceiptIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path><path d="M16 8h-6a2 2 0 1 0 0 4h6"></path><path d="M12 14v2"></path></svg>`;
 
-const featuresList = [
-  {
-    icon: TabletIcon,
-    title: "Vendedor Inteligente",
-    description:
-      "Automatiza tus conversaciones de venta y personaliza la experiencia del cliente con IA avanzada.",
-  },
-  {
-    icon: BarChart3Icon,
-    title: "Gestión Comercial y Administrativa",
-    description:
-      "Organiza tus contactos, gestiona inventarios y controla tus finanzas en un solo lugar integrado.",
-  },
-  {
-    icon: ReceiptIcon,
-    title: "Facturación Electrónica Automática",
-    description:
-      "Emite facturas electrónicas de forma rápida y sencilla, cumpliendo con todas las regulaciones locales.",
-  },
-];
-
-// Asumimos que tienes una imagen en public/images/funcionalidad-placeholder.jpg
-// o reemplaza con la URL correcta o importa desde src/assets si usas <Image> de astro:assets
-const imageUrl = "/images/FuncionalidadVendePe.png"; // CAMBIA ESTO A TU RUTA DE IMAGEN
+const imageUrl = "/images/FuncionalidadVendePe.png";
 ---
 
 <section id="funcionalidades" class="py-24 px-4 bg-gray-900">
@@ -38,10 +14,13 @@ const imageUrl = "/images/FuncionalidadVendePe.png"; // CAMBIA ESTO A TU RUTA DE
       class="text-center mb-16 animate-on-scroll"
       data-animation-type="fade-in-up"
     >
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white">
+      <h2
+        id="func-title"
+        class="text-3xl md:text-5xl font-bold mb-4 font-poppins text-white"
+      >
         Funcionalidad
       </h2>
-      <p class="text-white/90 text-lg max-w-3xl mx-auto">
+      <p id="func-desc" class="text-white/90 text-lg max-w-3xl mx-auto">
         Descubre todas las herramientas que VendePe pone a tu disposición para
         impulsar tu negocio
       </p>
@@ -49,38 +28,88 @@ const imageUrl = "/images/FuncionalidadVendePe.png"; // CAMBIA ESTO A TU RUTA DE
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div class="animate-on-scroll" data-animation-type="fade-in-left">
-        <div class="text-emerald-500 font-medium mb-2">
+        <div id="func-badge" class="text-emerald-500 font-medium mb-2">
           Ventas y Gestión Automatizadas
         </div>
-        <h3 class="text-3xl font-bold mb-6 text-white">
+        <h3 id="func-subtitle" class="text-3xl font-bold mb-6 text-white">
           Impulsa tu negocio con VendePe
         </h3>
-        <p class="text-white/90 mb-8 text-lg">
+        <p id="func-paragraph" class="text-white/90 mb-8 text-lg">
           VendePe, el vendedor inteligente basado en IA, optimiza tus ventas y
           gestión comercial directamente desde WhatsApp. Simplifica la
           facturación electrónica y la administración de tu negocio.
         </p>
 
         <div class="space-y-8">
-          {
-            featuresList.map((feature, index) => (
-              <div
-                class="flex gap-4 group feature-item animate-on-scroll"
-                data-animation-type="fade-in-up-staggered"
-                data-stagger-index={index}
+          <div
+            class="flex gap-4 group feature-item animate-on-scroll"
+            data-animation-type="fade-in-up-staggered"
+            data-stagger-index="0"
+          >
+            <div
+              class="text-emerald-600 flex items-center mt-1 bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-800/50 transition-colors"
+            >
+              <Fragment set:html={TabletIcon} />
+            </div>
+            <div>
+              <h4
+                id="func-card1-title"
+                class="font-bold text-lg mb-2 text-emerald-500"
               >
-                <div class="text-emerald-600 flex items-center mt-1 bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-800/50 transition-colors">
-                  <Fragment set:html={feature.icon} />
-                </div>
-                <div>
-                  <h4 class="font-bold text-lg mb-2 text-emerald-500">
-                    {feature.title}
-                  </h4>
-                  <p class="text-white/90">{feature.description}</p>
-                </div>
-              </div>
-            ))
-          }
+                Vendedor Inteligente
+              </h4>
+              <p id="func-card1-desc" class="text-white/90">
+                Automatiza tus conversaciones de venta y personaliza la
+                experiencia del cliente con IA avanzada.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex gap-4 group feature-item animate-on-scroll"
+            data-animation-type="fade-in-up-staggered"
+            data-stagger-index="1"
+          >
+            <div
+              class="text-emerald-600 flex items-center mt-1 bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-800/50 transition-colors"
+            >
+              <Fragment set:html={BarChart3Icon} />
+            </div>
+            <div>
+              <h4
+                id="func-card2-title"
+                class="font-bold text-lg mb-2 text-emerald-500"
+              >
+                Gestión Comercial y Administrativa
+              </h4>
+              <p id="func-card2-desc" class="text-white/90">
+                Organiza tus contactos, gestiona inventarios y controla tus
+                finanzas en un solo lugar integrado.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex gap-4 group feature-item animate-on-scroll"
+            data-animation-type="fade-in-up-staggered"
+            data-stagger-index="2"
+          >
+            <div
+              class="text-emerald-600 flex items-center mt-1 bg-emerald-900/30 p-3 rounded-full group-hover:bg-emerald-800/50 transition-colors"
+            >
+              <Fragment set:html={ReceiptIcon} />
+            </div>
+            <div>
+              <h4
+                id="func-card3-title"
+                class="font-bold text-lg mb-2 text-emerald-500"
+              >
+                Facturación Electrónica Automática
+              </h4>
+              <p id="func-card3-desc" class="text-white/90">
+                Emite facturas electrónicas de forma rápida y sencilla,
+                cumpliendo con todas las regulaciones locales.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

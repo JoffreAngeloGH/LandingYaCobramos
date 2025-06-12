@@ -10,10 +10,10 @@ import { Image } from "astro:assets";
           <span class="text-white">Vende</span>
           <span class="text-[#3D5AFE]">Pe</span>
         </a>
-        <p class="mt-4 text-gray-400 mb-6">
+        <p id="footer-desc" class="mt-4 text-gray-400 mb-6">
           Automatización inteligente para ventas, gestión comercial y
           facturación. <br />
-          !Tus ventas no duermen. Nuestra IA tampoco!
+          ¡Tus ventas no duermen. Nuestra IA tampoco!
         </p>
         <div class="flex space-x-4">
           <a
@@ -85,11 +85,14 @@ import { Image } from "astro:assets";
       </div>
 
       <div>
-        <h3 class="font-bold text-lg mb-6">Enlaces rápidos</h3>
+        <h3 id="footer-quicklinks-title" class="font-bold text-lg mb-6">
+          Enlaces rápidos
+        </h3>
         <ul class="space-y-4">
           <li>
             <a
-              href="#"
+              id="footer-link-inicio"
+              href="/#inicio"
               class="text-gray-400 hover:text-white transition-colors"
             >
               Inicio
@@ -97,6 +100,7 @@ import { Image } from "astro:assets";
           </li>
           <li>
             <a
+              id="footer-link-beneficios"
               href="#beneficios"
               class="text-gray-400 hover:text-white transition-colors"
             >
@@ -105,6 +109,7 @@ import { Image } from "astro:assets";
           </li>
           <li>
             <a
+              id="footer-link-funcionalidades"
               href="#funcionalidades"
               class="text-gray-400 hover:text-white transition-colors"
             >
@@ -113,6 +118,7 @@ import { Image } from "astro:assets";
           </li>
           <li>
             <a
+              id="footer-link-precios"
               href="#precio"
               class="text-gray-400 hover:text-white transition-colors"
             >
@@ -121,6 +127,7 @@ import { Image } from "astro:assets";
           </li>
           <li>
             <a
+              id="footer-link-testimonios"
               href="#testimonios"
               class="text-gray-400 hover:text-white transition-colors"
             >
@@ -131,7 +138,9 @@ import { Image } from "astro:assets";
       </div>
 
       <div>
-        <h3 class="font-bold text-lg mb-6">Contacto</h3>
+        <h3 id="footer-contact-title" class="font-bold text-lg mb-6">
+          Contacto
+        </h3>
         <ul class="space-y-4">
           <!-- <li class="flex items-start">
             <svg
@@ -170,7 +179,7 @@ import { Image } from "astro:assets";
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
               ></path>
             </svg>
-            <span class="text-gray-400">+51 999 115 320</span>
+            <span id="footer-phone" class="text-gray-400">+51 999 115 320</span>
           </li>
           <!-- <li class="flex items-center">
             <svg
@@ -197,17 +206,19 @@ import { Image } from "astro:assets";
     <div
       class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
     >
-      <p class="text-sm text-gray-500 mb-4 md:mb-0">
+      <p id="footer-copyright" class="text-sm text-gray-500 mb-4 md:mb-0">
         © 2025 VendePe. Todos los derechos reservados.
       </p>
       <div class="flex space-x-6">
         <a
+          id="footer-link-terminos"
           href="#"
           class="text-sm text-gray-500 hover:text-white transition-colors"
         >
           Términos y condiciones
         </a>
         <a
+          id="footer-link-privacidad"
           href="#"
           class="text-sm text-gray-500 hover:text-white transition-colors"
         >

@@ -2,17 +2,33 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const testimonials = [
-  {
-    quote:
-      "Lo que antes me tomaba horas al día, ahora sucede solo. Con respuestas automáticas, ventas inteligentes y facturación automática, mi negocio funciona las 24 horas sin que yo tenga que estar siempre conectado.",
-    author: "Bryan Villafuerte",
-    role: "Green Cycle",
-    avatar: "/images/logos/LogoTestimonioB.svg",
-  },
-];
-
 export default function Testimonios() {
+  // Usa los testimonios globales si existen, si no usa los hardcodeados
+  const [testimonials, setTestimonials] = useState(
+    typeof window !== "undefined" && window.testimoniosData
+      ? window.testimoniosData
+      : [
+          {
+            quote:
+              "Lo que antes me tomaba horas al día, ahora sucede solo. Con respuestas automáticas, ventas inteligentes y facturación automática, mi negocio funciona las 24 horas sin que yo tenga que estar siempre conectado.",
+            author: "Bryan Villafuerte",
+            role: "Green Cycle",
+            avatar: "/images/logos/LogoTestimonioB.svg",
+          },
+        ]
+  );
+
+  // Escucha cambios en window.testimoniosData
+  useEffect(() => {
+    function handler() {
+      if (window.testimoniosData) setTestimonials(window.testimoniosData);
+    }
+    window.addEventListener("testimoniosDataChanged", handler);
+    // Llama una vez por si ya está disponible
+    handler();
+    return () => window.removeEventListener("testimoniosDataChanged", handler);
+  }, []);
+
   const [current, setCurrent] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -83,10 +99,16 @@ export default function Testimonios() {
     <section id="testimonios" className="py-24 px-4 bg-gray-50 overflow-hidden">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-[#3B4E73] ">
+          <h2
+            id="testimonios-title"
+            className="text-3xl md:text-5xl font-bold mb-4 text-[#3B4E73] "
+          >
             Lo que dicen nuestros clientes
           </h2>
-          <p className="text-gray-600  text-lg max-w-3xl mx-auto">
+          <p
+            id="testimonios-desc"
+            className="text-gray-600  text-lg max-w-3xl mx-auto"
+          >
             Descubre cómo VendePe ha transformado los negocios de nuestros
             clientes
           </p>
