@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 
 <section
   id="inicio"
-  class="pt-32 pb-20 px-4 bg-gradient-to-b from-emerald-900 to-emerald-950 text-white overflow-hidden"
+  class="pt-24 pb-24 px-4 bg-gradient-to-b from-[#022c22] via-[#013a35] to-[#001f1a] text-white overflow-hidden"
 >
   <div class="container mx-auto max-w-6xl">
     <div class="flex justify-end mb-4"></div>
@@ -13,11 +13,14 @@ import { Image } from "astro:assets";
       <div class="block lg:hidden mb-8 text-center animate-fade-in">
         <h1
           id="hero-title-mobile"
-          class="text-4xl md:text-6xl font-bold mb-4 font-poppins leading-tight"
+          class="text-4xl md:text-6xl font-extrabold mb-6 font-poppins leading-tight tracking-tight"
         >
           Automatiza tus ventas sin perder el trato humano
         </h1>
-        <p id="hero-subtitle-mobile" class="text-lg md:text-xl text-white/80">
+        <p
+          id="hero-subtitle-mobile"
+          class="text-lg md:text-xl text-white/90 leading-relaxed"
+        >
           Automatiza tus ventas con inteligencia artificial que responde,
           convence y factura 24/7. Ideal para empresas, pymes y e-commerce.
         </p>
@@ -77,9 +80,7 @@ import { Image } from "astro:assets";
 
             <!-- Conversación de WhatsApp -->
             <div class="flex-1 flex flex-col bg-[#e5ddd5] p-3 overflow-y-auto">
-              <!-- Mensajes -->
               <div class="flex flex-col space-y-2">
-                <!-- Mensaje del cliente -->
                 <div
                   class="bg-white self-start rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
@@ -89,20 +90,16 @@ import { Image } from "astro:assets";
                   <p class="text-[10px] text-gray-500 text-right">10:30</p>
                 </div>
 
-                <!-- Mensaje del asistente con imágenes -->
                 <div
                   class="bg-[#dcf8c6] self-end rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
                   <p
                     id="phone-chat-2-greeting"
-                    class="text-sm
-                    text-black
-                    font-bold"
+                    class="text-sm text-black font-bold"
                   >
                     ¡Hola! Aquí te muestro algunos modelos:
                   </p>
                   <div class="space-y-2">
-                    <!-- Producto 1 -->
                     <div class="flex items-center space-x-2">
                       <img
                         src="/images/Poloazul.svg"
@@ -112,15 +109,12 @@ import { Image } from "astro:assets";
                       <div>
                         <p
                           id="phone-chat-2-product1"
-                          class="text-sm
-                          text-black"
+                          class="text-sm text-black"
                         >
                           🔹 <strong>Polo azul clásico – S/45</strong>
                         </p>
                       </div>
                     </div>
-
-                    <!-- Producto 2 -->
                     <div class="flex items-center space-x-2">
                       <img
                         src="/images/Polonegro.svg"
@@ -136,8 +130,6 @@ import { Image } from "astro:assets";
                         </p>
                       </div>
                     </div>
-
-                    <!-- Producto 3 -->
                     <div class="flex items-center space-x-2">
                       <img
                         src="/images/Polorojo.svg"
@@ -157,7 +149,6 @@ import { Image } from "astro:assets";
                   <p class="text-[10px] text-gray-500 text-right">10:31</p>
                 </div>
 
-                <!-- Mensaje del cliente -->
                 <div
                   class="bg-white self-start rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
@@ -167,7 +158,6 @@ import { Image } from "astro:assets";
                   <p class="text-[10px] text-gray-500 text-right">10:32</p>
                 </div>
 
-                <!-- Mensaje del asistente -->
                 <div
                   class="bg-[#dcf8c6] self-end rounded-lg p-2 max-w-[80%] shadow-sm"
                 >
@@ -179,7 +169,6 @@ import { Image } from "astro:assets";
               </div>
             </div>
 
-            <!-- Barra de entrada de mensaje -->
             <div
               class="flex items-center bg-white rounded-full p-1 mt-2 mx-3 mb-3 flex-shrink-0"
             >
@@ -201,26 +190,26 @@ import { Image } from "astro:assets";
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path d="m22 2-7 20-4-9-9-4Z"></path>
-                  <path d="M22 2 11 13"></path>
+                  <path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"
+                  ></path>
                 </svg>
               </button>
             </div>
           </div>
         </div>
       </div>
+
       <!-- Contenido del CTA -->
       <div class="text-center lg:text-left animate-fade-in">
         <h1
           id="hero-title-desktop"
-          class="hidden lg:block text-4xl md:text-6xl font-bold mb-6 font-poppins leading-tight"
+          class="hidden lg:block text-4xl md:text-6xl font-extrabold mb-6 font-poppins leading-tight tracking-tight"
         >
           Automatiza tus ventas sin perder el trato humano
         </h1>
-        <!-- Subtítulo SOLO visible en escritorio -->
         <p
           id="hero-subtitle-desktop"
-          class="hidden lg:block text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto lg:mx-0"
+          class="hidden lg:block text-lg md:text-xl text-white/90 leading-relaxed mb-10 max-w-3xl mx-auto lg:mx-0"
         >
           Automatiza tus ventas con inteligencia artificial que responde,
           convence y factura 24/7. Ideal para empresas, pymes y e-commerce.
@@ -233,7 +222,7 @@ import { Image } from "astro:assets";
             href="https://wa.me/51999115320?text=Hola%20me%20gustaría%20tener%20mi%20propio%20asistente%20de%20venta%20inteligente"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-white text-emerald-600 hover:bg-white/90 text-lg px-8 py-4 rounded-md shadow-lg hover:shadow-xl transition-all duration-300 font-medium inline-flex items-center justify-center"
+            class="bg-gradient-to-r from-emerald-400 to-emerald-500 text-white text-lg px-10 py-5 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 font-semibold inline-flex items-center justify-center scale-105 hover:scale-110"
           >
             Solicita una demo
             <svg
@@ -255,24 +244,23 @@ import { Image } from "astro:assets";
           <a
             id="hero-plans-btn"
             href="#precio"
-            class="border border-white/30 bg-white/10 hover:bg-white/20 text-white text-lg px-8 py-4 rounded-md font-medium inline-flex items-center justify-center"
+            class="border border-white/20 bg-white/5 hover:bg-white/15 text-white text-lg px-8 py-4 rounded-xl font-medium inline-flex items-center justify-center backdrop-blur-sm transition-all duration-300"
           >
             Ver planes
           </a>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div
-            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-fade-in"
+            class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-fade-in"
             style="animation-delay: 0ms"
           >
             <div
-              class="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mb-4"
+              class="bg-white/10 rounded-full w-10 h-10 flex items-center justify-center mb-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -285,24 +273,25 @@ import { Image } from "astro:assets";
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
             </div>
-            <h3 id="hero-benefit-1-title" class="font-bold text-xl mb-2">
+            <h3 id="hero-benefit-1-title" class="font-semibold text-lg mb-1">
               Ahorra tiempo
             </h3>
-            <p id="hero-benefit-1-desc" class="text-white/70">
+            <p id="hero-benefit-1-desc" class="text-white/70 text-sm">
               Automatiza respuestas y procesos de venta 24/7
             </p>
           </div>
+
           <div
-            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-fade-in"
+            class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-fade-in"
             style="animation-delay: 100ms"
           >
             <div
-              class="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mb-4"
+              class="bg-white/10 rounded-full w-10 h-10 flex items-center justify-center mb-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -316,24 +305,25 @@ import { Image } from "astro:assets";
                 <path d="M6 20v-6"></path>
               </svg>
             </div>
-            <h3 id="hero-benefit-2-title" class="font-bold text-xl mb-2">
+            <h3 id="hero-benefit-2-title" class="font-semibold text-lg mb-1">
               Aumenta ventas
             </h3>
-            <p id="hero-benefit-2-desc" class="text-white/70">
+            <p id="hero-benefit-2-desc" class="text-white/70 text-sm">
               Mejora la conversión con respuestas inmediatas
             </p>
           </div>
+
           <div
-            class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-fade-in"
+            class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-fade-in"
             style="animation-delay: 200ms"
           >
             <div
-              class="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mb-4"
+              class="bg-white/10 rounded-full w-10 h-10 flex items-center justify-center mb-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -347,10 +337,10 @@ import { Image } from "astro:assets";
                 ></path>
               </svg>
             </div>
-            <h3 id="hero-benefit-3-title" class="font-bold text-xl mb-2">
+            <h3 id="hero-benefit-3-title" class="font-semibold text-lg mb-1">
               Reduce costos
             </h3>
-            <p id="hero-benefit-3-desc" class="text-white/70">
+            <p id="hero-benefit-3-desc" class="text-white/70 text-sm">
               Optimiza recursos y personal de atención
             </p>
           </div>

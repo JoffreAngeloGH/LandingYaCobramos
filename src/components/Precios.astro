@@ -25,7 +25,7 @@ import { Image } from "astro:assets";
             subtitleId: "plan1-subtitle",
             priceId: "plan1-price",
             badgeId: "plan1-badge",
-            featuresIds: ["plan1-feature1", "plan1-feature2", "plan1-feature3"],
+            featuresIds: ["plan1-feature1", "plan1-feature2"],
             highlighted: false,
             delay: 0,
           },
@@ -34,12 +34,7 @@ import { Image } from "astro:assets";
             subtitleId: "plan2-subtitle",
             priceId: "plan2-price",
             badgeId: "plan2-badge",
-            featuresIds: [
-              "plan2-feature1",
-              "plan2-feature2",
-              "plan2-feature3",
-              "plan2-feature4",
-            ],
+            featuresIds: ["plan2-feature1", "plan2-feature2", "plan2-feature3"],
             highlighted: true,
             delay: 100,
             badge: true,
@@ -54,7 +49,6 @@ import { Image } from "astro:assets";
               "plan3-feature2",
               "plan3-feature3",
               "plan3-feature4",
-              "plan3-feature5",
             ],
             highlighted: false,
             delay: 200,
@@ -85,9 +79,12 @@ import { Image } from "astro:assets";
                     : "Corporativo"}
               </h3>
               <p id={plan.subtitleId} class="text-gray-500  text-sm mb-6" />
-              <div class="mb-6">
+              <div class="mb-6 flex flex-col items-center">
+                <span class="block text-gray-400 text-xl font-semibold line-through mb-1">
+                  {index === 0 ? "$99" : index === 1 ? "$240" : "$340"}
+                </span>
                 <span id={plan.priceId} class="text-4xl font-bold ">
-                  {index === 0 ? "$99" : index === 1 ? "$149" : "$249"}
+                  {index === 0 ? "$39" : index === 1 ? "$149" : "$249"}
                 </span>
                 <span class="text-gray-500 ">/mes</span>
               </div>

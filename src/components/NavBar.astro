@@ -316,6 +316,7 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         subtitulo: "Impulsa tu negocio con VendePe",
         parrafo:
           "VendePe, el vendedor inteligente basado en IA, optimiza tus ventas y gestión comercial directamente desde WhatsApp. Simplifica la facturación electrónica y la administración de tu negocio.",
+        imagen: "/images/FuncionalidadVendePe.png", // Imagen ES
         paso1: {
           titulo: "Conecta tu WhatsApp",
           descripcion:
@@ -337,12 +338,8 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         plan1: {
           titulo: "Emprende",
           subtitulo: "",
-          precio: "$99",
-          features: [
-            "Implementación 7 días",
-            "2 números de WhatsApp",
-            "Hasta 12 productos",
-          ],
+          precio: "$39",
+          features: ["Implementación 7 días", "1 número de WhatsApp"],
           cta: "Empezar ahora",
         },
         plan2: {
@@ -352,7 +349,6 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
           features: [
             "Implementación 7 días",
             "3 números de WhatsApp",
-            "Hasta 17 productos",
             "Módulo de análisis",
           ],
           badge: "Recomendado",
@@ -365,7 +361,6 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
           features: [
             "Implementación 7 días",
             "5 números de WhatsApp",
-            "Hasta 28 productos",
             "Soporte especializado",
             "Módulo de análisis",
           ],
@@ -509,6 +504,7 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         subtitle: "Boost Your Business with VendePe",
         paragraph:
           "VendePe, the AI-powered sales assistant, optimizes your sales and business management directly through WhatsApp. Simplifies electronic invoicing and business administration.",
+        image: "/images/FuncionalidadEN.png", // Imagen EN
         paso1: {
           titulo: "Connect your WhatsApp",
           descripcion:
@@ -531,20 +527,15 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         plan1: {
           titulo: "Starter",
           subtitulo: "",
-          precio: "$99",
-          features: ["7-day setup", "2 WhatsApp numbers", "Up to 12 products"],
+          precio: "$39",
+          features: ["7-day setup", "1 WhatsApp number"],
           cta: "Start now",
         },
         plan2: {
           titulo: "Professional",
           subtitulo: "",
           precio: "$149",
-          features: [
-            "7-day setup",
-            "3 WhatsApp numbers",
-            "Up to 17 products",
-            "Analytics module",
-          ],
+          features: ["7-day setup", "3 WhatsApp numbers", "Analytics module"],
           badge: "Recommended",
           cta: "Start now",
         },
@@ -555,7 +546,6 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
           features: [
             "7-day setup",
             "5 WhatsApp numbers",
-            "Up to 28 products",
             "Specialized support",
             "Analytics module",
           ],
@@ -707,6 +697,10 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
     updateTestimoniosSection();
     window.dispatchEvent(new Event("testimoniosDataChanged"));
     updateFooterSection();
+    updateDemoBtn(lang);
+    updateFooterPhone(lang);
+    updateHeroDemoBtn(lang);
+    updateWhatsBtnHref(lang);
   }
 
   /**
@@ -880,6 +874,8 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       paso1: Paso;
       paso2: Paso;
       paso3: Paso;
+      imagen?: string;
+      image?: string;
     };
 
     const funcData: FuncData =
@@ -917,6 +913,16 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
       const cardDesc = document.getElementById(`func-card${i}-desc`);
       if (cardTitle) cardTitle.textContent = paso.titulo;
       if (cardDesc) cardDesc.textContent = paso.descripcion;
+    }
+
+    // Cambiar imagen según idioma
+    const funcImage = document.getElementById("func-image");
+    if (funcImage && funcImage instanceof HTMLImageElement) {
+      if (lang === "es" && funcData.imagen) {
+        funcImage.src = funcData.imagen;
+      } else if (lang === "en" && funcData.image) {
+        funcImage.src = funcData.image;
+      }
     }
   }
 
@@ -976,6 +982,48 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
         planCta.textContent =
           plan.cta || (lang === "es" ? "Empezar ahora" : "Start now");
     }
+  }
+
+  const demoMessages = {
+    es: "Hola me gustaría tener mi propio asistente de venta inteligente",
+    en: "Hi, I would like to have my own smart sales assistant",
+  };
+
+  function updateDemoBtn(lang: "es" | "en") {
+    // Desktop
+    const demoBtn = document.querySelector(".demo-btn");
+    if (demoBtn && demoBtn instanceof HTMLAnchorElement) {
+      demoBtn.href = `https://wa.me/51999115320?text=${encodeURIComponent(demoMessages[lang])}`;
+    }
+    // Mobile
+    const demoBtnMobile = document.querySelector(".demo-btn-mobile");
+    if (demoBtnMobile && demoBtnMobile instanceof HTMLAnchorElement) {
+      demoBtnMobile.href = `https://wa.me/51999115320?text=${encodeURIComponent(demoMessages[lang])}`;
+    }
+  }
+
+  function updateFooterPhone(lang: "es" | "en") {
+    const footerPhone = document.getElementById("footer-phone");
+    if (footerPhone && footerPhone instanceof HTMLAnchorElement) {
+      footerPhone.href = `https://wa.me/51999115320?text=${encodeURIComponent(demoMessages[lang])}`;
+    }
+  }
+
+  function updateHeroDemoBtn(lang: "es" | "en") {
+    const heroDemoBtn = document.getElementById("hero-demo-btn");
+    if (heroDemoBtn && heroDemoBtn instanceof HTMLAnchorElement) {
+      heroDemoBtn.href = `https://wa.me/51999115320?text=${encodeURIComponent(demoMessages[lang])}`;
+    }
+  }
+
+  function updateWhatsBtnHref(lang: "es" | "en") {
+    // Espera a que el DOM esté listo y el botón exista
+    setTimeout(() => {
+      const btn = document.getElementById("hero2-demo-btn");
+      if (btn && btn instanceof HTMLAnchorElement) {
+        btn.href = `https://wa.me/51999115320?text=${encodeURIComponent(demoMessages[lang])}`;
+      }
+    }, 0);
   }
 
   const whatsappMessages = {
@@ -1089,6 +1137,10 @@ const XIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vi
     updateTestimoniosSection();
     window.dispatchEvent(new Event("testimoniosDataChanged"));
     updateFooterSection();
+    updateDemoBtn(lang);
+    updateFooterPhone(lang);
+    updateHeroDemoBtn(lang);
+    updateWhatsBtnHref(lang);
   });
 
   // Add this declaration before using window.setLanguage or window.setNavBarLanguage

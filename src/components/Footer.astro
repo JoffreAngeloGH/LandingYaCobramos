@@ -2,229 +2,222 @@
 import { Image } from "astro:assets";
 ---
 
-<footer class="bg-gray-900 text-white pt-20 pb-10">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
-      <div>
-        <a href="/" class="flex items-center text-2xl font-bold font-poppins">
-          <span class="text-white">Vende</span>
-          <span class="text-[#3D5AFE]">Pe</span>
-        </a>
-        <p id="footer-desc" class="mt-4 text-gray-400 mb-6">
-          Automatización inteligente para ventas, gestión comercial y
-          facturación. <br />
-          ¡Tus ventas no duermen. Nuestra IA tampoco!
-        </p>
-        <div class="flex space-x-4">
-          <a
-            href="#"
-            class="bg-gray-800 hover:bg-gray-700 h-10 w-10 rounded-full flex items-center justify-center transition-colors"
-            aria-label="Facebook"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="#"
-            class="bg-gray-800 hover:bg-gray-700 h-10 w-10 rounded-full flex items-center justify-center transition-colors"
-            aria-label="Instagram"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-            </svg>
-          </a>
-          <a
-            href="#"
-            class="bg-gray-800 hover:bg-gray-700 h-10 w-10 rounded-full flex items-center justify-center transition-colors"
-            aria-label="LinkedIn"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              ></path>
-              <rect width="4" height="12" x="2" y="9"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <h3 id="footer-quicklinks-title" class="font-bold text-lg mb-6">
+<footer class="bg-gray-900 text-white pt-14 pb-8">
+  <div class="container mx-auto px-4 flex flex-col items-center">
+    <a href="/" class="mb-6 flex items-center justify-center">
+      <img
+        src="/images/LogoVendePe.png"
+        alt="Logo VendePe"
+        class="w-36 h-auto"
+        loading="lazy"
+      />
+    </a>
+    <p id="footer-desc" class="text-gray-400 text-center max-w-2xl mb-8">
+      Automatización inteligente para ventas, gestión comercial y facturación. <br
+      />
+      ¡Tus ventas no duermen. Nuestra IA tampoco!
+    </p>
+    <div
+      class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10"
+    >
+      <div class="flex flex-col items-center lg:items-start">
+        <h3 id="footer-quicklinks-title" class="font-bold text-lg mb-4">
           Enlaces rápidos
         </h3>
-        <ul class="space-y-4">
+        <ul class="space-y-2 text-center lg:text-left">
           <li>
             <a
               id="footer-link-inicio"
               href="/#inicio"
-              class="text-gray-400 hover:text-white transition-colors"
+              class="text-gray-400 hover:text-white transition-colors">Inicio</a
             >
-              Inicio
-            </a>
           </li>
           <li>
             <a
               id="footer-link-beneficios"
               href="#beneficios"
               class="text-gray-400 hover:text-white transition-colors"
+              >Beneficios</a
             >
-              Beneficios
-            </a>
           </li>
           <li>
             <a
               id="footer-link-funcionalidades"
               href="#funcionalidades"
               class="text-gray-400 hover:text-white transition-colors"
+              >Funcionalidades</a
             >
-              Funcionalidades
-            </a>
           </li>
           <li>
             <a
               id="footer-link-precios"
               href="#precio"
               class="text-gray-400 hover:text-white transition-colors"
+              >Precios</a
             >
-              Precios
-            </a>
           </li>
           <li>
             <a
               id="footer-link-testimonios"
               href="#testimonios"
               class="text-gray-400 hover:text-white transition-colors"
+              >Testimonios</a
             >
-              Testimonios
-            </a>
           </li>
         </ul>
       </div>
-
-      <div>
-        <h3 id="footer-contact-title" class="font-bold text-lg mb-6">
+      <div class="flex flex-col items-center lg:items-start mt-8 sm:mt-0">
+        <h3 id="footer-contact-title" class="font-bold text-lg mb-4">
           Contacto
         </h3>
-        <ul class="space-y-4">
-          <!-- <li class="flex items-start">
+        <ul class="space-y-2">
+          <li class="flex items-center justify-center lg:justify-start">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="text-emerald-500 mr-3 mt-1 flex-shrink-0"
+              ><g fill="none"
+                ><g clip-path="url(#akarIconsWhatsappFill0)"
+                  ><path
+                    fill="#25D366"
+                    fill-rule="evenodd"
+                    d="M17.415 14.382c-.298-.149-1.759-.867-2.031-.967s-.47-.148-.669.15c-.198.297-.767.966-.94 1.164c-.174.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.019-.458.13-.606c.134-.133.297-.347.446-.52s.198-.298.297-.497c.1-.198.05-.371-.025-.52c-.074-.149-.668-1.612-.916-2.207c-.241-.579-.486-.5-.668-.51c-.174-.008-.372-.01-.57-.01s-.52.074-.792.372c-.273.297-1.04 1.016-1.04 2.479c0 1.462 1.064 2.875 1.213 3.074s2.095 3.2 5.076 4.487c.71.306 1.263.489 1.694.625c.712.227 1.36.195 1.872.118c.57-.085 1.758-.719 2.006-1.413s.247-1.289.173-1.413s-.272-.198-.57-.347m-5.422 7.403h-.004a9.87 9.87 0 0 1-5.032-1.378l-.36-.214l-3.742.982l.999-3.648l-.235-.374a9.86 9.86 0 0 1-1.511-5.26c.002-5.45 4.436-9.884 9.889-9.884a9.8 9.8 0 0 1 6.988 2.899a9.82 9.82 0 0 1 2.892 6.992c-.002 5.45-4.436 9.885-9.884 9.885m8.412-18.297A11.82 11.82 0 0 0 11.992 0C5.438 0 .102 5.335.1 11.892a11.86 11.86 0 0 0 1.587 5.945L0 24l6.304-1.654a11.9 11.9 0 0 0 5.684 1.448h.005c6.554 0 11.89-5.335 11.892-11.893a11.82 11.82 0 0 0-3.48-8.413"
+                    clip-rule="evenodd"></path></g
+                ><defs
+                  ><clipPath id="akarIconsWhatsappFill0"
+                    ><path fill="#fff" d="M0 0h24v24H0z"></path></clipPath
+                  ></defs
+                ></g
+              ></svg
             >
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span class="text-gray-400"
-              >Av. Javier Prado Este 123, San Isidro, Lima, Perú</span
+            <a target="_blank" id="footer-phone" class="text-gray-400 px-2"
+              >+51 999 115 320</a
             >
-          </li> -->
-          <li class="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="text-emerald-500 mr-3 flex-shrink-0"
-            >
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-              ></path>
-            </svg>
-            <span id="footer-phone" class="text-gray-400">+51 999 115 320</span>
           </li>
-          <!-- <li class="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="text-emerald-500 mr-3 flex-shrink-0"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-            <span class="text-gray-400">info@VendePe.com</span>
-          </li> -->
         </ul>
       </div>
+      <div class="flex flex-col items-center">
+        <h3 class="font-bold text-lg mb-4">Síguenos</h3>
+        <div class="flex space-x-4">
+          <a
+            href="#"
+            class="bg-gray-800 hover:bg-emerald-500 h-12 w-12 rounded-full flex items-center justify-center transition-colors"
+            aria-label="Facebook"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path></svg
+            >
+          </a>
+          <a
+            href="#"
+            class="bg-gray-800 hover:bg-emerald-500 h-12 w-12 rounded-full flex items-center justify-center transition-colors"
+            aria-label="Instagram"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect width="20" height="20" x="2" y="2" rx="5" ry="5"
+              ></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+              ></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg
+            >
+          </a>
+          <a
+            href="#"
+            class="bg-gray-800 hover:bg-emerald-500 h-12 w-12 rounded-full flex items-center justify-center transition-colors"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path><rect width="4" height="12" x="2" y="9"></rect><circle
+                cx="4"
+                cy="4"
+                r="2"></circle></svg
+            >
+          </a>
+        </div>
+      </div>
     </div>
-
     <div
-      class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
+      class="w-full border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4"
     >
-      <p id="footer-copyright" class="text-sm text-gray-500 mb-4 md:mb-0">
+      <p
+        id="footer-copyright"
+        class="text-sm text-gray-500 text-center md:text-left"
+      >
         © 2025 VendePe. Todos los derechos reservados.
       </p>
-      <div class="flex space-x-6">
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center">
         <a
           id="footer-link-terminos"
           href="#"
           class="text-sm text-gray-500 hover:text-white transition-colors"
+          >Términos y condiciones</a
         >
-          Términos y condiciones
-        </a>
         <a
           id="footer-link-privacidad"
           href="#"
           class="text-sm text-gray-500 hover:text-white transition-colors"
+          >Políticas de privacidad</a
         >
-          Políticas de privacidad
-        </a>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  footer .container {
+    max-width: 1100px;
+  }
+  @media (max-width: 640px) {
+    footer .container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    footer .w-36 {
+      width: 90px;
+    }
+    footer .text-lg {
+      font-size: 1.1rem;
+    }
+    footer .text-sm {
+      font-size: 0.95rem;
+    }
+    footer .grid {
+      gap: 2rem;
+    }
+  }
+  @media (max-width: 400px) {
+    footer .w-36 {
+      width: 60px;
+    }
+  }
+</style>
